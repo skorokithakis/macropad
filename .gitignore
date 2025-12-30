@@ -1,2 +1,6 @@
-
-.zmk/
+# West-managed directories
+.west/
+zmk/
+zephyr/
+modules/
+build/
