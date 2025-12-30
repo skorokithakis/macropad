@@ -6,14 +6,8 @@ file_format: "1"
 id: macropad
 name: macropad
 type: shield
-
-# Set this to a URL that documents the keyboard.
 url: https://example.com
-
-# Add any features your keyboard supports here.
-# See https://zmk.dev/docs/development/hardware-integration/hardware-metadata-files#features
 features:
   - keys
-  - studio  # Remove this line if your keyboard will not support ZMK Studio
 requires:
-  - makerdiary_nrf52840_m2
+  - nice_nano_v2
