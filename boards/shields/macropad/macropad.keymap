@@ -16,12 +16,39 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        layer_0 {
             bindings = <
-                &kp N7    &kp N8   &kp N9    &kp BSPC
-                &kp N4    &kp N5   &kp N6    &kp FSLH
-                &kp N1    &kp N2   &kp N3    &kp STAR
-                &kp N0    &kp DOT  &kp MINUS &kp RET
+                &to 0     &to 1     &to 2     &to 3
+                &kp F13   &kp F14   &kp F15   &kp F16
+                &kp F17   &kp F18   &kp F19   &kp F20
+                &kp F21   &kp F22   &kp F23   &kp F24
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+                &to 0        &to 1        &to 2        &to 3
+                &kp LA(F13)  &kp LA(F14)  &kp LA(F15)  &kp LA(F16)
+                &kp LA(F17)  &kp LA(F18)  &kp LA(F19)  &kp LA(F20)
+                &kp LA(F21)  &kp LA(F22)  &kp LA(F23)  &kp LA(F24)
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+                &to 0            &to 1            &to 2            &to 3
+                &kp LA(LS(F13))  &kp LA(LS(F14))  &kp LA(LS(F15))  &kp LA(LS(F16))
+                &kp LA(LS(F17))  &kp LA(LS(F18))  &kp LA(LS(F19))  &kp LA(LS(F20))
+                &kp LA(LS(F21))  &kp LA(LS(F22))  &kp LA(LS(F23))  &kp LA(LS(F24))
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+                &to 0                &to 1                &to 2                &to 3
+                &kp LC(LA(LS(F13)))  &kp LC(LA(LS(F14)))  &kp LC(LA(LS(F15)))  &kp LC(LA(LS(F16)))
+                &kp LC(LA(LS(F17)))  &kp LC(LA(LS(F18)))  &kp LC(LA(LS(F19)))  &kp LC(LA(LS(F20)))
+                &kp LC(LA(LS(F21)))  &kp LC(LA(LS(F22)))  &kp LC(LA(LS(F23)))  &kp LC(LA(LS(F24)))
             >;
         };
     };
