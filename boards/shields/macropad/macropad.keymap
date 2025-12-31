@@ -3,19 +3,119 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
+    macros {
+        url_macro: url_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp W &kp W &kp W &kp DOT &kp S &kp T &kp A &kp V &kp R &kp O &kp S &kp DOT &kp I &kp O>;
+        };
 
-        combo_bootloader {
-            timeout-ms = <50>;
-            key-positions = <0 3 12 15>;
+        // Wrapper macro to give &bootloader a binding cell for use with hold-tap.
+        boot_macro: boot_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
             bindings = <&bootloader>;
         };
 
+        // Wrapper macro for &bt BT_CLR since &bt can't be used directly in hold-tap.
+        bt_clr_macro: bt_clr_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&bt BT_CLR>;
+        };
+    };
+
+    behaviors {
+        bt_clr_hold: bt_clr_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&bt_clr_macro>, <&to>;
+        };
+
+        boot_hold: boot_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&boot_macro>, <&to>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        // Long-press layer buttons 0 and 3 to enter bootloader, short-press for layer 6.
+        combo_bootloader {
+            timeout-ms = <50>;
+            key-positions = <0 3>;
+            bindings = <&boot_hold 0 6>;
+        };
+
+        // Long-press all 4 layer buttons to clear BT pairings, short-press for layer 14.
         combo_bt_clear {
             timeout-ms = <50>;
             key-positions = <0 1 2 3>;
-            bindings = <&bt BT_CLR>;
+            bindings = <&bt_clr_hold 0 14>;
+        };
+
+        // Double-button layer combos.
+        combo_layer_01 {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&to 4>;
+        };
+
+        combo_layer_02 {
+            timeout-ms = <50>;
+            key-positions = <0 2>;
+            bindings = <&to 5>;
+        };
+
+        combo_layer_12 {
+            timeout-ms = <50>;
+            key-positions = <1 2>;
+            bindings = <&to 7>;
+        };
+
+        combo_layer_13 {
+            timeout-ms = <50>;
+            key-positions = <1 3>;
+            bindings = <&to 8>;
+        };
+
+        combo_layer_23 {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&to 9>;
+        };
+
+        // Triple-button layer combos.
+        combo_layer_012 {
+            timeout-ms = <50>;
+            key-positions = <0 1 2>;
+            bindings = <&to 10>;
+        };
+
+        combo_layer_013 {
+            timeout-ms = <50>;
+            key-positions = <0 1 3>;
+            bindings = <&to 11>;
+        };
+
+        combo_layer_023 {
+            timeout-ms = <50>;
+            key-positions = <0 2 3>;
+            bindings = <&to 12>;
+        };
+
+        combo_layer_123 {
+            timeout-ms = <50>;
+            key-positions = <1 2 3>;
+            bindings = <&to 13>;
         };
     };
 
@@ -55,6 +155,106 @@
                 &kp RC(LS(LG(Z)))    &kp RC(LS(LG(X)))    &kp RC(LS(LG(C)))    &kp RC(LS(LG(V)))
                 &kp RC(LS(LG(B)))    &kp RC(LS(LG(N)))    &kp RC(LS(LG(M)))    &kp RC(LS(LG(COMMA)))
                 &kp RC(LS(LG(DOT)))  &kp RC(LS(LG(FSLH))) &kp RC(LS(LG(BSLH))) &kp RC(LS(LG(TAB)))
+            >;
+        };
+
+        // Layers 4-13: URL macro layers activated by button combinations.
+        layer_4 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_5 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_7 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_8 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_9 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_10 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_11 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_12 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_13 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+            >;
+        };
+
+        layer_14 {
+            bindings = <
+                &to 0      &to 1      &to 2      &to 3
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &url_macro
             >;
         };
     };
