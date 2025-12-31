@@ -2,3 +2,4 @@
 include:
   - board: nice_nano_v2
     shield: macropad
+    cmake-args: -DZMK_EXTRA_MODULES=zmk-modules/batt_type
