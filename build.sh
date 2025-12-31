@@ -11,7 +11,7 @@ docker run --rm \
     [ -d .west ] || west init -l config && \
     west update && \
     west zephyr-export && \
-    west build -s zmk/app -b nice_nano_v2 -p -- -DSHIELD=macropad -DZMK_CONFIG=/zmk-workspace -DZMK_EXTRA_MODULES='/zmk-workspace;/zmk-workspace/zmk-modules/batt_type'"
+    west build -s zmk/app -b nice_nano_v2 -p -- -DSHIELD=macropad -DZMK_CONFIG=/zmk-workspace -DZMK_EXTRA_MODULES=/zmk-workspace/zmk-modules/batt_type"
 
 echo "Firmware built: $SCRIPT_DIR/build/zephyr/zmk.uf2"
 
