@@ -95,7 +95,8 @@ static int batt_type_pressed(struct zmk_behavior_binding *binding,
 
     char out[20];
     int n = snprintk(out, sizeof(out), "Battery: %d.%02dV", whole, frac);
-    for (int i = 0; i < n; i++) {
+    int limit = MIN(n, (int)sizeof(out) - 1);
+    for (int i = 0; i < limit; i++) {
         enqueue_ascii(out[i], event);
     }
 
