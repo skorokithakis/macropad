@@ -1,0 +1,5 @@
+description: Type out current battery voltage as text
+
+compatible: "zmk,behavior-batt-type"
+
+include: zero_param.yaml

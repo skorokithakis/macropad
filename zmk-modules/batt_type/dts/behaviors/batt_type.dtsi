@@ -1,0 +1,8 @@
+/ {
+  behaviors {
+    batt_type: batt_type {
+      compatible = "zmk,behavior-batt-type";
+      #binding-cells = <0>;
+    };
+  };
+};

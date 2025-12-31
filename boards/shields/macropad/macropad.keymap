@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <behaviors/batt_type.dtsi>
 
 / {
     macros {
@@ -25,6 +26,13 @@
             #binding-cells = <1>;
             bindings = <&bt BT_CLR>;
         };
+
+        // Wrapper macro for &batt_type to give it a binding cell for use with hold-tap.
+        batt_type_macro: batt_type_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&batt_type>;
+        };
     };
 
     behaviors {
@@ -42,6 +50,14 @@
             flavor = "hold-preferred";
             tapping-term-ms = <1000>;
             bindings = <&boot_macro>, <&to>;
+        };
+
+        batt_hold: batt_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&batt_type_macro>, <&to>;
         };
     };
 
@@ -75,10 +91,11 @@
             bindings = <&to 5>;
         };
 
-        combo_layer_12 {
+        // Long-press layer buttons 1 and 2 to type battery voltage, short-press for layer 7.
+        combo_battery_voltage {
             timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&to 7>;
+            bindings = <&batt_hold 0 7>;
         };
 
         combo_layer_13 {
