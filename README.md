@@ -12,6 +12,9 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
   - Layer 2: A through `
   - Layer 3: Z through Tab
 - Layers 4-14: Activated by pressing multiple layer buttons simultaneously
+  - Layer 12 (buttons 0+2+3): Gaming layer - WASD layout with ESC/TAB/CTRL on left column, ALT/Enter/Space on bottom row
+  - Layer 13 (buttons 1+2+3): Numpad - 7-8-9/4-5-6/1-2-3 with +, Enter, and 0
+  - Layer 14 (all 4 buttons, short press): QWERTY - Q/W/E/R, A/S/D/F, Z/X/C/V
 
 ## Building
 

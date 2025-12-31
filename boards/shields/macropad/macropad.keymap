@@ -234,27 +234,27 @@
         layer_12 {
             bindings = <
                 &to 0      &to 1      &to 2      &to 3
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
+                &kp ESC    &kp Q      &kp W      &kp E
+                &kp TAB    &kp A      &kp S      &kp D
+                &kp LCTRL  &kp LALT   &kp RET    &kp SPACE
             >;
         };
 
         layer_13 {
             bindings = <
-                &to 0      &to 1      &to 2      &to 3
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
+                &to 0   &to 1   &to 2   &to 3
+                &kp N7  &kp N8  &kp N9  &kp PLUS
+                &kp N4  &kp N5  &kp N6  &kp RET
+                &kp N1  &kp N2  &kp N3  &kp N0
             >;
         };
 
         layer_14 {
             bindings = <
-                &to 0      &to 1      &to 2      &to 3
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
+                &to 0  &to 1  &to 2  &to 3
+                &kp Q  &kp W  &kp E  &kp R
+                &kp A  &kp S  &kp D  &kp F
+                &kp Z  &kp X  &kp C  &kp V
             >;
         };
     };
