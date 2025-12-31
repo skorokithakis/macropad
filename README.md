@@ -25,6 +25,7 @@ Run the build script:
 ```
 
 This uses Docker to build the firmware. Output is `build/zephyr/zmk.uf2`.
+The custom shield and keymap live under `config/boards/shields/macropad`.
 
 ## Flashing
 
