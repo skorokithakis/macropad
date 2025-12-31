@@ -1,9 +1,13 @@
+#define DT_DRV_COMPAT zmk_behavior_batt_type
+
 #include <zephyr/device.h>
+#include <zephyr/devicetree.h>
 #include <zephyr/drivers/sensor.h>
 #include <zephyr/kernel.h>
+#include <zephyr/sys/printk.h>
 #include <zephyr/sys/util.h>
 
-#include <zmk/behavior.h>
+#include <drivers/behavior.h>
 #include <zmk/behavior_queue.h>
 #include <zmk/keymap.h>
 
@@ -16,23 +20,20 @@
 #endif
 
 static const struct device *bat = DEVICE_DT_GET(ZMK_CHOSEN_BATTERY);
+static const char *kp_behavior = DEVICE_DT_NAME(DT_NODELABEL(kp));
 
 /* Convenience: enqueue a tap of &kp <keycode> */
 static int enqueue_kp_tap(uint32_t keycode, struct zmk_behavior_binding_event ev) {
     struct zmk_behavior_binding b = {
-        .behavior_dev = zmk_behavior_get_binding("kp"),
+        .behavior_dev = kp_behavior,
         .param1 = keycode,
         .param2 = 0,
     };
 
-    if (!b.behavior_dev) {
-        return -ENODEV;
-    }
-
-    /* tap == press then release; the queue API takes "pressed" bool */
-    int rc = zmk_behavior_queue_add(&b, ev, true);
+    /* tap == press then release; the queue API takes "pressed" bool and wait time */
+    int rc = zmk_behavior_queue_add(&ev, b, true, 0);
     if (rc) return rc;
-    return zmk_behavior_queue_add(&b, ev, false);
+    return zmk_behavior_queue_add(&ev, b, false, 0);
 }
 
 static int enqueue_ascii(char c, struct zmk_behavior_binding_event ev) {
@@ -61,35 +62,32 @@ static int batt_type_pressed(struct zmk_behavior_binding *binding,
     ARG_UNUSED(binding);
 
     if (!device_is_ready(bat)) {
-        /* If battery sensor isn't ready, type a short marker */
-        const char *msg = "BAT?\n";
+        const char *msg = "0.00V\n";
         for (const char *p = msg; *p; p++) enqueue_ascii(*p, event);
         return ZMK_BEHAVIOR_OPAQUE;
     }
 
-    int rc = sensor_sample_fetch(bat);
+    int rc = sensor_sample_fetch_chan(bat, SENSOR_CHAN_GAUGE_VOLTAGE);
     if (rc) {
-        const char *msg = "BAT!\n";
+        const char *msg = "0.00V\n";
         for (const char *p = msg; *p; p++) enqueue_ascii(*p, event);
         return ZMK_BEHAVIOR_OPAQUE;
     }
 
     struct sensor_value v = {0};
-    rc = sensor_channel_get(bat, SENSOR_CHAN_VOLTAGE, &v);
+    rc = sensor_channel_get(bat, SENSOR_CHAN_GAUGE_VOLTAGE, &v);
     if (rc) {
-        const char *msg = "BAT!\n";
+        const char *msg = "0.00V\n";
         for (const char *p = msg; *p; p++) enqueue_ascii(*p, event);
         return ZMK_BEHAVIOR_OPAQUE;
     }
 
     /* v is in volts as (val1 + val2 * 1e-6). Format as X.XXV */
-    int32_t microvolts = (int32_t)v.val1 * 1000000 + v.val2; /* actually microvolts of volts */
-    /* Convert volts->centivolts (two decimals): (V * 100) */
-    int32_t centivolts = (microvolts + 5000) / 10000; /* round */
+    int32_t microvolts = (int32_t)v.val1 * 1000000 + v.val2;
+    int32_t centivolts = (microvolts + 5000) / 10000;
     int32_t whole = centivolts / 100;
-    int32_t frac  = centivolts % 100;
+    int32_t frac = centivolts % 100;
 
-    /* Type e.g. "3.98V\n" */
     char out[12];
     int n = snprintk(out, sizeof(out), "%d.%02dV\n", whole, frac);
     for (int i = 0; i < n; i++) {

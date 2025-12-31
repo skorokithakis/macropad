@@ -2,7 +2,7 @@
   behaviors {
     batt_type: batt_type {
       compatible = "zmk,behavior-batt-type";
-      label = "BATT_TYPE";
+      #binding-cells = <0>;
     };
   };
 };

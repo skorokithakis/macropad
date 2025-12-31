@@ -5,3 +5,4 @@ project(zmk_batt_type)
 
 zephyr_library()
 zephyr_library_sources(src/batt_type.c)
+zephyr_library_include_directories(${APPLICATION_SOURCE_DIR}/include)
