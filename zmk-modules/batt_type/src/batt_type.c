@@ -49,10 +49,15 @@ static int enqueue_ascii(char c, struct zmk_behavior_binding_event ev) {
     case '8': return enqueue_kp_tap(N8, ev);
     case '9': return enqueue_kp_tap(N9, ev);
     case '.': return enqueue_kp_tap(DOT, ev);
-    case 'V': return enqueue_kp_tap(LS(V), ev);   /* Shift+V */
-    case 'v': return enqueue_kp_tap(V, ev);
+    case ':': return enqueue_kp_tap(LS(SEMI), ev);
+    case 'a': return enqueue_kp_tap(A, ev);
+    case 'e': return enqueue_kp_tap(E, ev);
+    case 'r': return enqueue_kp_tap(R, ev);
+    case 't': return enqueue_kp_tap(T, ev);
+    case 'y': return enqueue_kp_tap(Y, ev);
+    case 'B': return enqueue_kp_tap(LS(B), ev);
+    case 'V': return enqueue_kp_tap(LS(V), ev);
     case ' ': return enqueue_kp_tap(SPACE, ev);
-    case '\n': return enqueue_kp_tap(ENTER, ev);
     default:  return 0;
     }
 }
@@ -62,14 +67,14 @@ static int batt_type_pressed(struct zmk_behavior_binding *binding,
     ARG_UNUSED(binding);
 
     if (!device_is_ready(bat)) {
-        const char *msg = "0.00V\n";
+        const char *msg = "Battery: 0.00V";
         for (const char *p = msg; *p; p++) enqueue_ascii(*p, event);
         return ZMK_BEHAVIOR_OPAQUE;
     }
 
     int rc = sensor_sample_fetch_chan(bat, SENSOR_CHAN_GAUGE_VOLTAGE);
     if (rc) {
-        const char *msg = "0.00V\n";
+        const char *msg = "Battery: 0.00V";
         for (const char *p = msg; *p; p++) enqueue_ascii(*p, event);
         return ZMK_BEHAVIOR_OPAQUE;
     }
@@ -77,7 +82,7 @@ static int batt_type_pressed(struct zmk_behavior_binding *binding,
     struct sensor_value v = {0};
     rc = sensor_channel_get(bat, SENSOR_CHAN_GAUGE_VOLTAGE, &v);
     if (rc) {
-        const char *msg = "0.00V\n";
+        const char *msg = "Battery: 0.00V";
         for (const char *p = msg; *p; p++) enqueue_ascii(*p, event);
         return ZMK_BEHAVIOR_OPAQUE;
     }
@@ -88,8 +93,8 @@ static int batt_type_pressed(struct zmk_behavior_binding *binding,
     int32_t whole = centivolts / 100;
     int32_t frac = centivolts % 100;
 
-    char out[12];
-    int n = snprintk(out, sizeof(out), "%d.%02dV\n", whole, frac);
+    char out[20];
+    int n = snprintk(out, sizeof(out), "Battery: %d.%02dV", whole, frac);
     for (int i = 0; i < n; i++) {
         enqueue_ascii(out[i], event);
     }
