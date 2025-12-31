@@ -4,12 +4,14 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
 
 ## Features
 
-- 4 layers, switchable via the top row buttons
-- All keys send Ctrl+Shift+Cmd + a character (for use as global hotkeys)
-- Layer 0: Numbers 1-0, minus, equals
-- Layer 1: Q through ]
-- Layer 2: A through `
-- Layer 3: Z through Tab
+- 15 layers, switchable via the top row buttons and button combinations
+- All keys send RCtrl+Shift+Cmd + a character (for use as global hotkeys)
+- Layers 0-3: Single button press on top row
+  - Layer 0: Numbers 1-0, minus, equals
+  - Layer 1: Q through ]
+  - Layer 2: A through `
+  - Layer 3: Z through Tab
+- Layers 4-14: Activated by pressing multiple layer buttons simultaneously
 
 ## Building
 
@@ -28,6 +30,6 @@ This uses Docker to build the firmware. Output is `build/zephyr/zmk.uf2`.
 
 ## Special combos
 
-**Bootloader mode:** Hold all four corner keys simultaneously.
+**Bootloader mode:** Long-press layer buttons 0 and 3 (leftmost and rightmost in top row) simultaneously.
 
-**Clear Bluetooth pairings:** Hold all four layer buttons (top row) simultaneously.
+**Clear Bluetooth pairings:** Long-press all four layer buttons (top row) simultaneously.
