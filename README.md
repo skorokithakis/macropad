@@ -37,4 +37,4 @@ This uses Docker to build the firmware. Output is `build/zephyr/zmk.uf2`.
 
 **Clear Bluetooth pairings:** Long-press all four layer buttons (top row) simultaneously.
 
-**Battery voltage:** Press layer buttons 1 and 2 (the two middle buttons in top row) simultaneously to type "Battery: 3.98V". Note: This types a static voltage value - to display actual real-time voltage would require custom firmware modifications.
+**Battery voltage:** Press layer buttons 1 and 2 (the two middle buttons in top row) simultaneously to type the current battery voltage (e.g., "3.98V"). Uses a custom ZMK behavior that reads the battery voltage on-demand with essentially zero ongoing battery cost.
