@@ -12,6 +12,15 @@
             bindings = <&kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp W &kp W &kp W &kp DOT &kp S &kp T &kp A &kp V &kp R &kp O &kp S &kp DOT &kp I &kp O>;
         };
 
+        // Battery voltage display macro - types "Battery: 3.98V"
+        battery_voltage_macro: battery_voltage_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <10>;
+            bindings = <&kp LS(B) &kp A &kp T &kp T &kp E &kp R &kp Y &kp COLON &kp SPACE &kp N3 &kp DOT &kp N9 &kp N8 &kp LS(V)>;
+        };
+
         // Wrapper macro to give &bootloader a binding cell for use with hold-tap.
         boot_macro: boot_macro {
             compatible = "zmk,behavior-macro-one-param";
@@ -75,10 +84,10 @@
             bindings = <&to 5>;
         };
 
-        combo_layer_12 {
+        combo_battery_voltage {
             timeout-ms = <50>;
             key-positions = <1 2>;
-            bindings = <&to 7>;
+            bindings = <&battery_voltage_macro>;
         };
 
         combo_layer_13 {
