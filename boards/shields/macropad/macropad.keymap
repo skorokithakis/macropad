@@ -25,36 +25,36 @@
         layer_0 {
             bindings = <
                 &to 0                &to 1                &to 2                &to 3
-                &kp LC(LS(LG(N1)))   &kp LC(LS(LG(N2)))   &kp LC(LS(LG(N3)))   &kp LC(LS(LG(N4)))
-                &kp LC(LS(LG(N5)))   &kp LC(LS(LG(N6)))   &kp LC(LS(LG(N7)))   &kp LC(LS(LG(N8)))
-                &kp LC(LS(LG(N9)))   &kp LC(LS(LG(N0)))   &kp LC(LS(LG(MINUS))) &kp LC(LS(LG(EQUAL)))
+                &kp RC(LS(LG(N1)))   &kp RC(LS(LG(N2)))   &kp RC(LS(LG(N3)))   &kp RC(LS(LG(N4)))
+                &kp RC(LS(LG(N5)))   &kp RC(LS(LG(N6)))   &kp RC(LS(LG(N7)))   &kp RC(LS(LG(N8)))
+                &kp RC(LS(LG(N9)))   &kp RC(LS(LG(N0)))   &kp RC(LS(LG(MINUS))) &kp RC(LS(LG(EQUAL)))
             >;
         };
 
         layer_1 {
             bindings = <
                 &to 0                &to 1                &to 2                &to 3
-                &kp LC(LS(LG(Q)))    &kp LC(LS(LG(W)))    &kp LC(LS(LG(E)))    &kp LC(LS(LG(R)))
-                &kp LC(LS(LG(T)))    &kp LC(LS(LG(Y)))    &kp LC(LS(LG(U)))    &kp LC(LS(LG(I)))
-                &kp LC(LS(LG(O)))    &kp LC(LS(LG(P)))    &kp LC(LS(LG(LBKT))) &kp LC(LS(LG(RBKT)))
+                &kp RC(LS(LG(Q)))    &kp RC(LS(LG(W)))    &kp RC(LS(LG(E)))    &kp RC(LS(LG(R)))
+                &kp RC(LS(LG(T)))    &kp RC(LS(LG(Y)))    &kp RC(LS(LG(U)))    &kp RC(LS(LG(I)))
+                &kp RC(LS(LG(O)))    &kp RC(LS(LG(P)))    &kp RC(LS(LG(LBKT))) &kp RC(LS(LG(RBKT)))
             >;
         };
 
         layer_2 {
             bindings = <
                 &to 0                &to 1                &to 2                &to 3
-                &kp LC(LS(LG(A)))    &kp LC(LS(LG(S)))    &kp LC(LS(LG(D)))    &kp LC(LS(LG(F)))
-                &kp LC(LS(LG(G)))    &kp LC(LS(LG(H)))    &kp LC(LS(LG(J)))    &kp LC(LS(LG(K)))
-                &kp LC(LS(LG(L)))    &kp LC(LS(LG(SEMI))) &kp LC(LS(LG(SQT)))  &kp LC(LS(LG(GRAVE)))
+                &kp RC(LS(LG(A)))    &kp RC(LS(LG(S)))    &kp RC(LS(LG(D)))    &kp RC(LS(LG(F)))
+                &kp RC(LS(LG(G)))    &kp RC(LS(LG(H)))    &kp RC(LS(LG(J)))    &kp RC(LS(LG(K)))
+                &kp RC(LS(LG(L)))    &kp RC(LS(LG(SEMI))) &kp RC(LS(LG(SQT)))  &kp RC(LS(LG(GRAVE)))
             >;
         };
 
         layer_3 {
             bindings = <
                 &to 0                &to 1                &to 2                &to 3
-                &kp LC(LS(LG(Z)))    &kp LC(LS(LG(X)))    &kp LC(LS(LG(C)))    &kp LC(LS(LG(V)))
-                &kp LC(LS(LG(B)))    &kp LC(LS(LG(N)))    &kp LC(LS(LG(M)))    &kp LC(LS(LG(COMMA)))
-                &kp LC(LS(LG(DOT)))  &kp LC(LS(LG(FSLH))) &kp LC(LS(LG(BSLH))) &kp LC(LS(LG(TAB)))
+                &kp RC(LS(LG(Z)))    &kp RC(LS(LG(X)))    &kp RC(LS(LG(C)))    &kp RC(LS(LG(V)))
+                &kp RC(LS(LG(B)))    &kp RC(LS(LG(N)))    &kp RC(LS(LG(M)))    &kp RC(LS(LG(COMMA)))
+                &kp RC(LS(LG(DOT)))  &kp RC(LS(LG(FSLH))) &kp RC(LS(LG(BSLH))) &kp RC(LS(LG(TAB)))
             >;
         };
     };
