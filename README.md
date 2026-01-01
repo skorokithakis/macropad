@@ -6,6 +6,7 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
 
 - 15 layers, switchable via the top row buttons and button combinations
 - All keys send RCtrl+Shift+Cmd + a character (for use as global hotkeys)
+- Idle deep sleep enabled; wakes on any key press after inactivity
 - Layers 0-3: Single button press on top row
   - Layer 0: Numbers 1-0, minus, equals
   - Layer 1: Q through ]
