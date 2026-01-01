@@ -21,6 +21,9 @@
 
 static const struct device *bat = DEVICE_DT_GET(ZMK_CHOSEN_BATTERY);
 static const char *kp_behavior = DEVICE_DT_NAME(DT_NODELABEL(kp));
+/* Match macro tap/spacing defaults to avoid dropped releases on fast hosts. */
+#define BATT_TYPE_TAP_MS CONFIG_ZMK_MACRO_DEFAULT_TAP_MS
+#define BATT_TYPE_WAIT_MS CONFIG_ZMK_MACRO_DEFAULT_WAIT_MS
 
 /* Convenience: enqueue a tap of &kp <keycode> */
 static int enqueue_kp_tap(uint32_t keycode, struct zmk_behavior_binding_event ev) {
@@ -31,9 +34,9 @@ static int enqueue_kp_tap(uint32_t keycode, struct zmk_behavior_binding_event ev
     };
 
     /* tap == press then release; the queue API takes "pressed" bool and wait time */
-    int rc = zmk_behavior_queue_add(&ev, b, true, 0);
+    int rc = zmk_behavior_queue_add(&ev, b, true, BATT_TYPE_TAP_MS);
     if (rc) return rc;
-    return zmk_behavior_queue_add(&ev, b, false, 0);
+    return zmk_behavior_queue_add(&ev, b, false, BATT_TYPE_WAIT_MS);
 }
 
 static int enqueue_ascii(char c, struct zmk_behavior_binding_event ev) {
