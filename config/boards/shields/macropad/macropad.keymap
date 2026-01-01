@@ -20,30 +20,22 @@
             bindings = <&bootloader>;
         };
 
-        // Wrapper macro for &bt BT_CLR since &bt can't be used directly in hold-tap.
-        bt_clr_macro: bt_clr_macro {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = <&bt BT_CLR>;
-        };
-
         // Wrapper macro for &batt_type to give it a binding cell for use with hold-tap.
         batt_type_macro: batt_type_macro {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings = <&batt_type>;
         };
+
+        // Wrapper macro to switch to BT layer for use with hold-tap.
+        bt_layer_macro: bt_layer_macro {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&to 15>;
+        };
     };
 
     behaviors {
-        bt_clr_hold: bt_clr_hold {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&bt_clr_macro>, <&to>;
-        };
-
         boot_hold: boot_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -59,6 +51,14 @@
             tapping-term-ms = <1000>;
             bindings = <&batt_type_macro>, <&to>;
         };
+
+        bt_layer_hold: bt_layer_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&bt_layer_macro>, <&to>;
+        };
     };
 
     combos {
@@ -71,11 +71,11 @@
             bindings = <&boot_hold 0 6>;
         };
 
-        // Long-press all 4 layer buttons to clear BT pairings, short-press for layer 14.
-        combo_bt_clear {
-            timeout-ms = <50>;
+        // Hold all 4 layer buttons for 1 second to enter BT layer (15), tap for layer 14.
+        combo_bt_layer {
+            timeout-ms = <100>;
             key-positions = <0 1 2 3>;
-            bindings = <&bt_clr_hold 0 14>;
+            bindings = <&bt_layer_hold 0 14>;
         };
 
         // Double-button layer combos.
@@ -266,12 +266,23 @@
             >;
         };
 
+        // Layer 14: QWERTY layer (all 4 layer buttons tap).
         layer_14 {
             bindings = <
                 &to 0  &to 1  &to 2  &to 3
                 &kp Q  &kp W  &kp E  &kp R
                 &kp A  &kp S  &kp D  &kp F
                 &kp Z  &kp X  &kp C  &kp V
+            >;
+        };
+
+        // Layer 15: Bluetooth control layer (hold all 4 layer buttons for 1s).
+        layer_15 {
+            bindings = <
+                &to 0          &to 1          &to 2          &to 3
+                &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3
+                &bt BT_SEL 4   &bt BT_SEL 5   &bt BT_SEL 6   &bt BT_SEL 7
+                &bt BT_SEL 8   &bt BT_SEL 9   &bt BT_SEL 10  &bt BT_CLR_ALL
             >;
         };
     };
