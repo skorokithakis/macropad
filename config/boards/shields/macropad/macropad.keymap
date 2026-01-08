@@ -322,7 +322,7 @@
             bindings = <
                 &to 0      &to 1      &to 2      &to 3
                 &kp ESC    &kp Q      &kp W      &kp E
-                &kp TAB    &kp A      &kp S      &kp D
+                &kp LSHIFT &kp A      &kp S      &kp D
                 &kp LCTRL  &kp LALT   &kp RET    &kp SPACE
             >;
         };
