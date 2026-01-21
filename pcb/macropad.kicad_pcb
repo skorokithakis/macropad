@@ -17503,7 +17503,7 @@
 			(justify left bottom mirror)
 		)
 	)
-	(gr_text "-"
+	(gr_text "+"
 		(at 65.659 28.702 0)
 		(layer "B.SilkS")
 		(uuid "61d775af-f1f8-4122-8f76-1ed56c46783c")
@@ -17516,7 +17516,7 @@
 			(justify left bottom mirror)
 		)
 	)
-	(gr_text "+"
+	(gr_text "-"
 		(at 73.025 28.702 0)
 		(layer "B.SilkS")
 		(uuid "9d91b14a-75fe-4c05-9934-c90a9d4d2518")
