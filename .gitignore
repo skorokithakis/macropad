@@ -4,3 +4,6 @@ zmk/
 zephyr/
 modules/
 build/
+
+# Generated pin overlay
+config/boards/shields/macropad/macropad.overlay

@@ -25,11 +25,15 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
 Run the build script:
 
 ```bash
-./build.sh
+./build.sh        # PCB version (default)
+./build.sh -v 1   # Hand-wired version
+./build.sh -v 2   # PCB version
 ```
 
 This uses Docker to build the firmware. Output is `build/zephyr/zmk.uf2`.
 The custom shield and keymap live under `config/boards/shields/macropad`.
+
+Pin mappings for each version are in `pins_v1.overlay` and `pins_v2.overlay`.
 
 ## Flashing
 
