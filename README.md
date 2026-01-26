@@ -4,27 +4,24 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
 
 ## Features
 
-- 15 layers (0-14), each with 15 usable keys
+- 15 normal layers with 15 usable keys each
 - Layer switching via dedicated modifier key (bottom-left, key 12)
 - All hotkey layers send RCtrl+Shift+Cmd + a character (for use as global hotkeys)
 - Idle deep sleep enabled; wakes on any key press after inactivity
-- 14 Bluetooth profiles via dedicated BT control layer
+- 15 Bluetooth profiles via dedicated Bluetooth control screen
 
-## Layer switching
+## Layer access
 
-Hold the modifier key (bottom-left, key 12) to activate the layer switcher (layer 16). While holding key 12:
+Hold the modifier key (bottom-left, key 12) to activate the layer switcher. While holding key 12:
 
-**Normal switching (tap):**
-- Tap keys 0-11 to switch to layers 0-11.
-- Tap keys 13-15 to switch to layers 12-14.
-- This gives you 15 user layers (0-14) accessible via immediate tap.
+**Normal layers (tap):**
+- Tap keys 0-11 to switch to normal layers 0-11.
+- Tap keys 13-15 to switch to normal layers 12-14.
 
-**Special functions (hold for 1 second, ordered by increasing danger):**
-- Key 0: Type battery voltage (e.g., "Battery: 3.98V").
-- Key 1: Switch to Bluetooth control layer.
+**Special layers (hold for 1 second, ordered by increasing danger):**
+- Key 0: Type battery voltage (for example: "Battery: 3.98V").
+- Key 1: Open Bluetooth control.
 - Key 2: Enter bootloader mode.
-
-Special functions are assigned starting from key 0 and grow sequentially as new functions are added.
 
 ## Layers
 
@@ -36,26 +33,35 @@ Key positions:
 12  13  14  15
 ```
 
-- **Layer 0**: Hotkeys for numbers and symbols (1-0, - = [ ] \ `)
-- **Layer 1**: Hotkeys for letters A-P
-- **Layer 2**: Hotkeys for letters Q-Z and punctuation (; ' , . / Space)
-- **Layer 3**: Hotkeys for function keys F1-F12 and modifiers (Tab, Esc, Enter, Backspace)
-- **Layer 4**: Text macros (16 phrases including "nootropia", "bro", "type shit", "imastan big bottle boys", "afto pou leipei einai to mialo", "aristotelis", "de to paizo magkas")
-- **Layer 5**: Media controls (shuffle/repeat/rewind/ff, brightness/print screen, volume/mute, prev/play/stop/next)
-- **Layer 6**: Mouse control (scroll up/down and back/forward on left, 8-directional movement, clicks on bottom row, hold center for scroll)
-- **Layer 7**: Gaming (ESC/1/2/3, Shift/Q/W/E, Ctrl/A/S/D, Tab/Alt/Enter/Space)
-- **Layer 8**: Numpad (7-8-9/*, 4-5-6/-, 1-2-3/+, 0/./Enter/)
-- **Layer 9**: Cluster (1/2/3/4, Q/W/E/R, A/S/D/F, Z/X/C/V)
-- **Layers 10-14**: Placeholder layers
-- **Layer 15**: Bluetooth control (profiles 0-13, clear all bonds) - accessed via special function
-- **Layer 17**: Scroll sub-layer (activated by holding center key on layer 6)
+**Normal layers**
 
-## Bluetooth control layer
+- **Layer 0**: Hotkeys for numbers and symbols (1-0, - = [ ] \ `).
+- **Layer 1**: Hotkeys for letters A-P.
+- **Layer 2**: Hotkeys for letters Q-Z and punctuation (; ' , . / Space).
+- **Layer 3**: Hotkeys for function keys F1-F12 and modifiers (Tab, Esc, Enter, Backspace).
+- **Layer 4**: Text macros (16 phrases including "nootropia", "bro", "type shit", "imastan big bottle boys", "afto pou leipei einai to mialo", "aristotelis", "de to paizo magkas").
+- **Layer 5**: Media controls (shuffle/repeat/rewind/ff, brightness/print screen, volume/mute, prev/play/stop/next).
+- **Layer 6**: Mouse control (scroll up/down and back/forward on left, 8-directional movement, clicks on bottom row, hold center for scroll).
+- **Layer 7**: Gaming (ESC/1/2/3, Shift/Q/W/E, Ctrl/A/S/D, Tab/Alt/Enter/Space).
+- **Layer 8**: Numpad (7-8-9/*, 4-5-6/-, 1-2-3/+, 0/./Enter/).
+- **Layer 9**: Cluster (1/2/3/4, Q/W/E/R, A/S/D/F, Z/X/C/V).
+- **Layers 10-14**: Placeholder layers.
 
-On layer 15:
-- Keys 0-13 select Bluetooth profiles 0-13
-- Key 15 clears all stored Bluetooth bonds
-- Hold modifier + tap any key to return to layers 0-14
+**Special layers**
+
+- **Bluetooth control**: Select Bluetooth profiles 0-14 and clear bonds.
+- **Battery voltage**: Types a voltage readout.
+- **Bootloader**: Enters bootloader mode.
+
+## Bluetooth control
+
+- Keys 0-13 select Bluetooth profiles 0-13.
+- Key 12 tap selects Bluetooth profile 14.
+- Key 15 clears all stored Bluetooth bonds.
+- Hold the modifier key and tap any key to return to a normal layer.
+## Customize
+
+Edit `config/boards/shields/macropad/macropad.keymap`.
 
 ## Building
 
@@ -74,5 +80,5 @@ Pin mappings for each version are in `pins_v1.overlay` and `pins_v2.overlay`.
 
 ## Flashing
 
-1. Put the board in bootloader mode (hold modifier + hold key 2 for 1 second)
-2. Copy `build/zephyr/zmk.uf2` to the USB mass storage device that appears
+1. Put the board in bootloader mode (hold modifier + hold key 2 for 1 second).
+2. Copy `build/zephyr/zmk.uf2` to the USB mass storage device that appears.
