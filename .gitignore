@@ -7,3 +7,4 @@ build/
 
 # Generated pin overlay
 config/boards/shields/macropad/macropad.overlay
+misc/coding-team/

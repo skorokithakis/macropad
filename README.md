@@ -13,12 +13,20 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
   - Layer 1: Q through ]
   - Layer 2: A through `
   - Layer 3: Z through Tab
-- Layers 4-15: Activated by pressing multiple layer buttons simultaneously
+- Layers 4-17: Activated by pressing multiple layer buttons simultaneously
+  - Layer 4 (buttons 0+1): Text macros - "nootropia", "bro", "type shit", "don't do dis shit", "respect", "and shit", "failing to prepare is preparing to fail", "exelixi", "eimai panta etoimos", "read a book", "to great reset", "open the fuckin pita"
   - Layer 5 (buttons 0+2): Media controls - Bri-/Bri+/Shuffle/Repeat, Vol-/Vol+/Mute/Search, Prev/Play-Pause/Stop/Next
-  - Layer 12 (buttons 0+2+3): Gaming layer - WASD layout with ESC/TAB/CTRL on left column, ALT/Enter/Space on bottom row
-  - Layer 13 (buttons 1+2+3): Numpad - 7-8-9/4-5-6/1-2-3 with +, Enter, and 0
+  - Layer 6 (buttons 0+3 short-press): Mouse control - L/M/R clicks on left column, 8-directional movement on right 3x3, hold center for scroll
+  - Layer 7 (buttons 1+2 short-press): URL macro - types "https://www.stavros.io" repeatedly
+  - Layer 8 (buttons 1+3): URL macro - types "https://www.stavros.io" repeatedly
+  - Layer 9 (buttons 2+3): URL macro - types "https://www.stavros.io" repeatedly
+  - Layer 10 (buttons 0+1+2): URL macro - types "https://www.stavros.io" repeatedly
+  - Layer 11 (buttons 0+1+3): URL macro - types "https://www.stavros.io" repeatedly
+  - Layer 12 (buttons 0+2+3): Gaming layer - ESC/Q/W/E, Shift/A/S/D, Ctrl/Alt/Enter/Space
+  - Layer 13 (buttons 1+2+3): Numpad - 7-8-9/+, 4-5-6/Enter, 1-2-3/0
   - Layer 14 (all 4 buttons tap): QWERTY - Q/W/E/R, A/S/D/F, Z/X/C/V
   - Layer 15 (all 4 buttons hold 1s): Bluetooth control layer (see below)
+  - Layer 17 (hold center key on layer 6): Scroll sub-layer - scroll up/down/left/right while held
 
 ## Building
 
