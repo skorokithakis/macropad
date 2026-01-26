@@ -12,12 +12,19 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
 
 ## Layer switching
 
-Hold the modifier key (bottom-left, key 12) to access layer 16 (layer selection), then tap any key 0-14 to switch to that layer permanently. Tapping key 12 performs a layer-specific action instead.
+Hold the modifier key (bottom-left, key 12) to activate the layer switcher (layer 16). While holding key 12:
 
-**Special functions on layer 16** (hold key for 1 second):
-- Key 13: Type battery voltage (e.g., "Battery: 3.98V")
-- Key 14: Switch to Bluetooth control layer
-- Key 15: Enter bootloader mode
+**Normal switching (tap):**
+- Tap keys 0-11 to switch to layers 0-11.
+- Tap keys 13-15 to switch to layers 12-14.
+- This gives you 15 user layers (0-14) accessible via immediate tap.
+
+**Special functions (hold for 1 second, ordered by increasing danger):**
+- Key 0: Type battery voltage (e.g., "Battery: 3.98V").
+- Key 1: Switch to Bluetooth control layer.
+- Key 2: Enter bootloader mode.
+
+Special functions are assigned starting from key 0 and grow sequentially as new functions are added.
 
 ## Layers
 
@@ -36,11 +43,11 @@ Key positions:
 - **Layer 4**: Text macros (16 phrases including "nootropia", "bro", "type shit", "imastan big bottle boys", "afto pou leipei einai to mialo", "aristotelis", "de to paizo magkas")
 - **Layer 5**: Media controls (shuffle/repeat/rewind/ff, brightness/print screen, volume/mute, prev/play/stop/next)
 - **Layer 6**: Mouse control (scroll up/down and back/forward on left, 8-directional movement, clicks on bottom row, hold center for scroll)
-- **Layers 7-11**: URL macro layers (placeholder)
-- **Layer 12**: Gaming (ESC/Q/W/E, Shift/A/S/D, Ctrl/Alt/Enter/Space, 1/2/3)
-- **Layer 13**: Numpad (7-8-9/+, 4-5-6/Enter, 1-2-3/0, ./- /*)
-- **Layer 14**: QWERTY (Q/W/E/R, A/S/D/F, Z/X/C/V, T/G/B)
-- **Layer 15**: Bluetooth control (profiles 0-13, clear all bonds)
+- **Layer 7**: Gaming (ESC/1/2/3, Shift/Q/W/E, Ctrl/A/S/D, Tab/Alt/Enter/Space)
+- **Layer 8**: Numpad (7-8-9/*, 4-5-6/-, 1-2-3/+, 0/./Enter/)
+- **Layer 9**: Cluster (1/2/3/4, Q/W/E/R, A/S/D/F, Z/X/C/V)
+- **Layers 10-14**: Placeholder layers
+- **Layer 15**: Bluetooth control (profiles 0-13, clear all bonds) - accessed via special function
 - **Layer 17**: Scroll sub-layer (activated by holding center key on layer 6)
 
 ## Bluetooth control layer
@@ -67,5 +74,5 @@ Pin mappings for each version are in `pins_v1.overlay` and `pins_v2.overlay`.
 
 ## Flashing
 
-1. Put the board in bootloader mode (hold modifier + hold key 15 for 1 second)
+1. Put the board in bootloader mode (hold modifier + hold key 2 for 1 second)
 2. Copy `build/zephyr/zmk.uf2` to the USB mass storage device that appears
