@@ -12,10 +12,10 @@
             bindings = <&kp H &kp T &kp T &kp P &kp S &kp COLON &kp FSLH &kp FSLH &kp W &kp W &kp W &kp DOT &kp S &kp T &kp A &kp V &kp R &kp O &kp S &kp DOT &kp I &kp O>;
         };
 
-        phrase_nootropia: phrase_nootropia {
+        phrase_notropia: phrase_notropia {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp N &kp O &kp O &kp T &kp R &kp O &kp P &kp I &kp A &kp SPACE>;
+            bindings = <&kp N &kp O &kp T &kp R &kp O &kp P &kp I &kp A &kp SPACE>;
         };
 
         phrase_bro: phrase_bro {
@@ -297,7 +297,7 @@
 
         layer_4 {
             bindings = <
-                &phrase_nootropia           &phrase_and_shit                &phrase_bro                  &phrase_dont_do_dis_shit
+                &phrase_notropia           &phrase_and_shit                &phrase_bro                  &phrase_dont_do_dis_shit
                 &phrase_respect             &phrase_type_shit               &phrase_failing_to_prepare   &phrase_exelixi
                 &phrase_eimai_panta_etoimos &phrase_read_a_book             &phrase_to_great_reset       &phrase_open_the_fuckin_pita
                 &lt_layer4 16 0             &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei      &phrase_doulevo_san_pisinos
