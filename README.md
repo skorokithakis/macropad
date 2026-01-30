@@ -39,7 +39,7 @@ Key positions:
 - **Layer 1**: Hotkeys for letters A-P.
 - **Layer 2**: Hotkeys for letters Q-Z and punctuation (; ' , . / Space).
 - **Layer 3**: Hotkeys for function keys F1-F12 and modifiers (Tab, Esc, Enter, Backspace).
-- **Layer 4**: Text macros (16 phrases including "nootropia", "bro", "type shit", "imastan big bottle boys", "afto pou leipei einai to mialo", "aristotelis", "de to paizo magkas").
+- **Layer 4**: Text macros (16 phrases including "nootropia", "bro", "type shit", "imastan big bottle boys", "afto pou leipei einai to mialo", "doulevo san pisinos", "de to paizo magkas").
 - **Layer 5**: Media controls (shuffle/repeat/rewind/ff, brightness/print screen, volume/mute, prev/play/stop/next).
 - **Layer 6**: Mouse control (scroll up/down and back/forward on left, 8-directional movement, clicks on bottom row, hold center for scroll).
 - **Layer 7**: Gaming (ESC/1/2/3, Shift/Q/W/E, Ctrl/A/S/D, Tab/Alt/Enter/Space).

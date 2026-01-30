@@ -96,16 +96,16 @@
             bindings = <&kp A &kp F &kp T &kp O &kp SPACE &kp P &kp O &kp U &kp SPACE &kp L &kp E &kp I &kp P &kp E &kp I &kp SPACE &kp E &kp I &kp N &kp A &kp I &kp SPACE &kp T &kp O &kp SPACE &kp M &kp I &kp A &kp L &kp O &kp SPACE>;
         };
 
-        phrase_aristotelis: phrase_aristotelis {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp A &kp R &kp I &kp S &kp T &kp O &kp T &kp E &kp L &kp I &kp S &kp SPACE>;
-        };
-
         phrase_de_to_paizo_magkas: phrase_de_to_paizo_magkas {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp D &kp E &kp SPACE &kp T &kp O &kp SPACE &kp P &kp A &kp I &kp Z &kp O &kp SPACE &kp M &kp A &kp G &kp K &kp A &kp S &kp SPACE>;
+        };
+
+        phrase_doulevo_san_pisinos: phrase_doulevo_san_pisinos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp D &kp O &kp U &kp L &kp E &kp V &kp O &kp SPACE &kp S &kp A &kp N &kp SPACE &kp P &kp I &kp S &kp I &kp N &kp O &kp S &kp SPACE>;
         };
 
         // Wrapper macro to give &bootloader a binding cell for use with hold-tap.
@@ -297,10 +297,10 @@
 
         layer_4 {
             bindings = <
-                &phrase_nootropia           &phrase_bro                     &phrase_type_shit            &phrase_dont_do_dis_shit
-                &phrase_respect             &phrase_and_shit                &phrase_failing_to_prepare   &phrase_exelixi
+                &phrase_nootropia           &phrase_and_shit                &phrase_bro                  &phrase_dont_do_dis_shit
+                &phrase_respect             &phrase_type_shit               &phrase_failing_to_prepare   &phrase_exelixi
                 &phrase_eimai_panta_etoimos &phrase_read_a_book             &phrase_to_great_reset       &phrase_open_the_fuckin_pita
-                &lt_layer4 16 0             &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei      &phrase_aristotelis
+                &lt_layer4 16 0             &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei      &phrase_doulevo_san_pisinos
             >;
         };
 
