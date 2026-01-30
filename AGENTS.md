@@ -26,3 +26,5 @@ When discussing layers, treat key 12 (bottom-left) like any other key. Only ment
 ## Key 12 warnings
 
 When proposing or assigning a function to key 12 that might cause the user to hold it down (e.g., drag lock, toggle behaviors, mouse movement, or anything that encourages sustained pressing), warn the user that this could accidentally trigger the layer switcher.
+
+Note that you shouldn't avoid assigning shortcuts to key 12 altogether (since it can be tapped), only avoid assigning shortcuts that might be *held*.
