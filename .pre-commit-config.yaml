@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: render-kle-layouts
+        name: Render KLE layouts
+        entry: python misc/render_kle.py
+        language: system
+        files: ^config/layouts/.*\.json$
+        pass_filenames: false

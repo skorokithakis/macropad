@@ -25,6 +25,8 @@ Hold the modifier key (bottom-left, key 12) to activate the layer switcher. Whil
 
 ## Layers
 
+See [KEYMAPS.md](KEYMAPS.md) for visual layer references.
+
 ```
 Key positions:
  0   1   2   3
