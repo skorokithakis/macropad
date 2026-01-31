@@ -1,7 +1,7 @@
 [
   {"name": "Layer 19: OnShape Features"},
-  ["Extrude", "Revolve", "Sweep", "Loft"],
-  ["Fillet", "Chamfer", "Shell", "Draft"],
-  ["Pattern", "Mirror", "Boolean", "Split"],
-  ["Plane", "Sketch On", "", ""]
+  ["Extrd", "Revlv", "Sweep", "Loft"],
+  ["Fillt", "Chmfr", "Shell", "Draft"],
+  ["Pattn", "Mirrr", "Booln", "Split"],
+  ["Plane", "Sktch\nOn", "", ""]
 ]

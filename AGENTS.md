@@ -33,6 +33,8 @@ Note that you shouldn't avoid assigning shortcuts to key 12 altogether (since it
 
 Keep the KLE JSON layout files in `config/layouts/` in sync with the actual keymap. Each layer should have a corresponding `.json` file named `layer_<number>_<name>.json`. Update these files whenever the keymap changes.
 
+**Key labels must be 5 characters or fewer** to fit properly in the rendered images. Abbreviate longer words by removing vowels (e.g., "Chamfer" → "Chmfr", "Boolean" → "Booln", "Mirror" → "Mirrr").
+
 ## Utilities
 
 - `misc/render_kle.py`: Renders KLE JSON files to PNG images using kle-render.herokuapp.com. Usage: `python3 misc/render_kle.py <input.json> [output.png]`

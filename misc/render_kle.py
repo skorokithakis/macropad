@@ -1,4 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.8"
+# dependencies = [
+#   "Pillow",
+#   "requests"
+# ]
+# ///
 """
 Render KLE JSON layout files to PNG images.
 
@@ -6,11 +13,11 @@ When run without arguments, detects which layout files in config/layouts/
 changed in the previous commit and renders those. Also regenerates KEYMAPS.md.
 
 Usage:
-    python render_kle.py              # Render changed layouts, update KEYMAPS.md
-    python render_kle.py --all        # Render all layouts, update KEYMAPS.md
-    python render_kle.py <file.json>  # Render a single file (legacy mode)
+    ./render_kle.py              # Render changed layouts, update KEYMAPS.md
+    ./render_kle.py --all        # Render all layouts, update KEYMAPS.md
+    ./render_kle.py <file.json>  # Render a single file (legacy mode)
 """
-
+import io
 import json
 import re
 import subprocess
@@ -18,11 +25,16 @@ import sys
 from pathlib import Path
 
 import requests
+from PIL import Image
 
 REPO_ROOT = Path(__file__).parent.parent
 LAYOUTS_DIR = REPO_ROOT / "config" / "layouts"
 OUTPUT_DIR = REPO_ROOT / "misc" / "layouts"
 KEYMAPS_FILE = REPO_ROOT / "KEYMAPS.md"
+
+
+TARGET_WIDTH = 849
+TARGET_HEIGHT = 848
 
 
 def render_kle(input_path: Path, output_path: Path) -> Path:
@@ -36,8 +48,12 @@ def render_kle(input_path: Path, output_path: Path) -> Path:
         )
     response.raise_for_status()
 
+    # Crop the image to the target size, keeping the top portion.
+    image = Image.open(io.BytesIO(response.content))
+    cropped = image.crop((0, 0, TARGET_WIDTH, TARGET_HEIGHT))
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_bytes(response.content)
+    cropped.save(output_path, "PNG")
     print(f"Rendered {input_path.name} -> {output_path}")
     return output_path
 
@@ -126,7 +142,9 @@ def generate_keymaps_md() -> None:
         if info["png_exists"]:
             lines.append(f"![{info['display_name']}]({info['png_relative']})")
         else:
-            lines.append(f"*Image not yet rendered. Run `python misc/render_kle.py --all` to generate.*")
+            lines.append(
+                f"*Image not yet rendered. Run `python misc/render_kle.py --all` to generate.*"
+            )
         lines.append("")
 
     KEYMAPS_FILE.write_text("\n".join(lines))
