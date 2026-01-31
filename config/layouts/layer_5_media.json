@@ -1,0 +1,7 @@
+[
+  {"name": "Layer 5: Media Controls"},
+  ["Shffl", "Rept", "Rew", "Fwd"],
+  ["Bri-", "Bri+", "", "PrtSc"],
+  ["Vol-", "Vol+", "Mute", ""],
+  ["Prev", "Play", "Stop", "Next"]
+]

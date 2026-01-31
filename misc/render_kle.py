@@ -10,7 +10,8 @@
 Render KLE JSON layout files to PNG images.
 
 When run without arguments, detects which layout files in config/layouts/
-changed in the previous commit and renders those. Also regenerates KEYMAPS.md.
+have uncommitted changes (or changed in the previous commit if nothing is
+uncommitted) and renders those. Also regenerates KEYMAPS.md.
 
 Usage:
     ./render_kle.py              # Render changed layouts, update KEYMAPS.md
@@ -59,19 +60,44 @@ def render_kle(input_path: Path, output_path: Path) -> Path:
 
 
 def get_changed_layouts() -> list[Path]:
-    """Get layout files that changed in the previous commit."""
+    """Get layout files that changed (uncommitted or in previous commit)."""
+    changed_files = set()
+
+    # Check for uncommitted changes (staged + unstaged).
     result = subprocess.run(
-        ["git", "diff", "--name-only", "HEAD~1", "--", "config/layouts/*.json"],
+        ["git", "diff", "--name-only", "HEAD", "--", "config/layouts/*.json"],
         capture_output=True,
         text=True,
         cwd=REPO_ROOT,
     )
-    changed_files = [
-        REPO_ROOT / line.strip()
-        for line in result.stdout.strip().split("\n")
-        if line.strip()
-    ]
-    return [f for f in changed_files if f.exists()]
+    for line in result.stdout.strip().split("\n"):
+        if line.strip():
+            changed_files.add(REPO_ROOT / line.strip())
+
+    # Check for untracked files.
+    result = subprocess.run(
+        ["git", "ls-files", "--others", "--exclude-standard", "config/layouts/*.json"],
+        capture_output=True,
+        text=True,
+        cwd=REPO_ROOT,
+    )
+    for line in result.stdout.strip().split("\n"):
+        if line.strip():
+            changed_files.add(REPO_ROOT / line.strip())
+
+    # Also check the previous commit if no uncommitted changes found.
+    if not changed_files:
+        result = subprocess.run(
+            ["git", "diff", "--name-only", "HEAD~1", "--", "config/layouts/*.json"],
+            capture_output=True,
+            text=True,
+            cwd=REPO_ROOT,
+        )
+        for line in result.stdout.strip().split("\n"):
+            if line.strip():
+                changed_files.add(REPO_ROOT / line.strip())
+
+    return sorted([f for f in changed_files if f.exists()])
 
 
 def get_all_layouts() -> list[Path]:
