@@ -29,6 +29,10 @@ When proposing or assigning a function to key 12 that might cause the user to ho
 
 Note that you shouldn't avoid assigning shortcuts to key 12 altogether (since it can be tapped), only avoid assigning shortcuts that might be *held*.
 
+## Layout files
+
+Keep the KLE JSON layout files in `config/layouts/` in sync with the actual keymap. Each layer should have a corresponding `.json` file named `layer_<number>_<name>.json`. Update these files whenever the keymap changes.
+
 ## Utilities
 
 - `misc/render_kle.py`: Renders KLE JSON files to PNG images using kle-render.herokuapp.com. Usage: `python3 misc/render_kle.py <input.json> [output.png]`

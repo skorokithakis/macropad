@@ -1,0 +1,7 @@
+[
+  {"name": "Layer 18: OnShape Constraints"},
+  ["Dimen", "Horiz", "Vert", "Coincid"],
+  ["Tangent", "Equal", "Normal", "Parallel"],
+  ["Perp", "Fix", "Midpoint", "Concentric"],
+  ["Mirror", "Symmetric", "Curvature", ""]
+]

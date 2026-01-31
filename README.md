@@ -45,13 +45,19 @@ Key positions:
 - **Layer 7**: Gaming (ESC/1/2/3, Shift/Q/W/E, Ctrl/A/S/D, Tab/Alt/Enter/Space).
 - **Layer 8**: Numpad (7-8-9/*, 4-5-6/-, 1-2-3/+, 0/./Enter/).
 - **Layer 9**: Cluster (1/2/3/4, Q/W/E/R, A/S/D/F, Z/X/C/V).
-- **Layers 10-14**: Placeholder layers.
+- **Layer 10**: OnShape Sketch Tools (Line, Rect, Circle, Arc, Polygon, Spline, Point, Text, Use, Offset, Construction, New Sketch, Trim, Mirror, Esc, Enter). Long-press: Rect (corner), Circle (3-pt), Arc (center). Hold Esc for Features sublayer, hold Enter for Constraints sublayer.
+- **Layers 11-14**: Placeholder layers.
 
 **Special layers**
 
 - **Bluetooth control**: Select Bluetooth profiles 0-14 and clear bonds.
 - **Battery voltage**: Types a voltage readout.
 - **Bootloader**: Enters bootloader mode.
+
+**OnShape sublayers (accessed from Layer 10)**
+
+- **Layer 18**: OnShape Constraints (hold Enter). Dimension, Horizontal, Vertical, Coincident, Tangent, Equal, Normal, Parallel, Perpendicular, Fix, Midpoint, Concentric, Mirror, Symmetric, Curvature.
+- **Layer 19**: OnShape Features (hold Esc). Extrude, Revolve, Sweep, Loft, Fillet, Chamfer, Shell, Draft, Pattern, Mirror, Boolean, Split, Plane, Sketch On.
 
 ## Bluetooth control
 

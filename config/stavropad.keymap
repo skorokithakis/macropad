@@ -136,6 +136,114 @@
             bindings = <&bt BT_SEL 14>;
         };
 
+        // OnShape sketch tool macros.
+        os_center_rect: os_center_rect {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(R)>;
+        };
+
+        os_3pt_circle: os_3pt_circle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(C)>;
+        };
+
+        os_center_arc: os_center_arc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(A)>;
+        };
+
+        os_new_sketch: os_new_sketch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(S)>;
+        };
+
+        os_extrude: os_extrude {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(E)>;
+        };
+
+        os_revolve: os_revolve {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(R)>;
+        };
+
+        os_sweep: os_sweep {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(W)>;
+        };
+
+        os_loft: os_loft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(L)>;
+        };
+
+        os_fillet: os_fillet {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(F)>;
+        };
+
+        os_chamfer: os_chamfer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(H)>;
+        };
+
+        os_shell: os_shell {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(Q)>;
+        };
+
+        os_draft: os_draft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(D)>;
+        };
+
+        os_pattern: os_pattern {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(P)>;
+        };
+
+        os_mirror_feat: os_mirror_feat {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(M)>;
+        };
+
+        os_boolean: os_boolean {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(B)>;
+        };
+
+        os_split: os_split {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(I)>;
+        };
+
+        os_plane: os_plane {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N)>;
+        };
+
+        os_sketch_on: os_sketch_on {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(S)>;
+        };
 
     };
 
@@ -250,6 +358,61 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&bt_sel_14_macro>;
         };
+
+        // Layer 10 (OnShape Sketch): Tap sends Trim (T), hold activates layer 16.
+        lt_layer10: lt_layer10 {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        // OnShape long-press behaviors (150ms threshold).
+        // Tap: center rect (Shift+R), Hold: corner rect (R).
+        os_rect_ht: os_rect_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&kp>, <&os_center_rect>;
+        };
+
+        // Tap: center circle (C), Hold: 3-point circle (Shift+C).
+        os_circle_ht: os_circle_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&os_3pt_circle>, <&kp>;
+        };
+
+        // Tap: 3-point arc (A), Hold: center arc (Shift+A).
+        os_arc_ht: os_arc_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&os_center_arc>, <&kp>;
+        };
+
+        // Layer 10 key 14: Tap sends Esc, hold activates layer 19 (Features).
+        os_esc_features: os_esc_features {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        // Layer 10 key 15: Tap sends Enter, hold activates layer 18 (Constraints).
+        os_enter_constraints: os_enter_constraints {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
     };
 
     keymap {
@@ -352,13 +515,14 @@
             >;
         };
 
-        // Layer 10: Placeholder.
+        // Layer 10: OnShape Sketch Tools.
+        // Long-press keys: Rect (tap=center, hold=corner), Circle (tap=center, hold=3pt), Arc (tap=3pt, hold=center).
         layer_10 {
             bindings = <
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
-                &url_macro &url_macro &url_macro &url_macro
-                &lt_layer7 16 0 &url_macro &url_macro &url_macro
+                &kp L              &os_rect_ht R 0    &os_circle_ht 0 C  &os_arc_ht 0 A
+                &kp G              &kp S              &kp P              &kp X
+                &kp U              &kp O              &kp Q              &os_new_sketch
+                &lt_layer10 16 T   &kp M              &os_esc_features 19 ESC &os_enter_constraints 18 RET
             >;
         };
 
@@ -431,6 +595,26 @@
                 &trans         &trans         &trans         &trans
                 &trans         &msc SCRL_LEFT &msc SCRL_DOWN &msc SCRL_RIGHT
                 &trans         &trans         &trans         &trans
+            >;
+        };
+
+        // Layer 18: OnShape Constraints (activated by holding Enter on layer 10).
+        layer_18 {
+            bindings = <
+                &kp D          &kp H          &kp V          &kp I
+                &kp T          &kp E          &kp N          &kp EQUAL
+                &kp BSLH       &kp F          &kp DOT        &kp O
+                &kp M          &kp Y          &kp B          &trans
+            >;
+        };
+
+        // Layer 19: OnShape Features (activated by holding Esc on layer 10).
+        layer_19 {
+            bindings = <
+                &os_extrude    &os_revolve    &os_sweep      &os_loft
+                &os_fillet     &os_chamfer    &os_shell      &os_draft
+                &os_pattern    &os_mirror_feat &os_boolean   &os_split
+                &os_plane      &os_sketch_on  &trans         &trans
             >;
         };
     };
