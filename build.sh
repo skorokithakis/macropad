@@ -28,8 +28,8 @@ if [[ "$VERSION" != "v1" && "$VERSION" != "v2" ]]; then
 	exit 1
 fi
 
-PINS_FILE="$SCRIPT_DIR/config/boards/shields/macropad/pins_${VERSION}.overlay"
-OVERLAY_FILE="$SCRIPT_DIR/config/boards/shields/macropad/macropad.overlay"
+PINS_FILE="$SCRIPT_DIR/config/boards/shields/stavropad/pins_${VERSION}.overlay"
+OVERLAY_FILE="$SCRIPT_DIR/config/boards/shields/stavropad/stavropad.overlay"
 
 cp "$PINS_FILE" "$OVERLAY_FILE"
 echo "Using pin configuration: $VERSION"
@@ -42,7 +42,7 @@ docker run --rm \
     [ -d .west ] || west init -l config && \
     west update && \
     west zephyr-export && \
-    west build -s zmk/app -b nice_nano_v2 -p -- -DSHIELD=macropad -DZMK_CONFIG=/zmk-workspace/config -DZMK_EXTRA_MODULES=/zmk-workspace/zmk-modules/batt_type"
+    west build -s zmk/app -b nice_nano_v2 -p -- -DSHIELD=stavropad -DZMK_CONFIG=/zmk-workspace/config -DZMK_EXTRA_MODULES=/zmk-workspace/zmk-modules/batt_type"
 
 echo "Firmware built: $SCRIPT_DIR/build/zephyr/zmk.uf2"
 

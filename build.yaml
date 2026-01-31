@@ -1,5 +1,5 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: macropad
+    shield: stavropad
     cmake-args: -DZMK_EXTRA_MODULES="${GITHUB_WORKSPACE}/zmk-modules/batt_type"

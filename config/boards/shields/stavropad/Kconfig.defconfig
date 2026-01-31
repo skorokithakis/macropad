@@ -1,6 +1,6 @@
-if SHIELD_MACROPAD
+if SHIELD_STAVROPAD
 
 config ZMK_KEYBOARD_NAME
     default "Stavropad"
 
-endif # SHIELD_MACROPAD
+endif # SHIELD_STAVROPAD

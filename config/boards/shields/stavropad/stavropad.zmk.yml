@@ -3,8 +3,8 @@
 # for instructions.
 
 file_format: "1"
-id: macropad
-name: macropad
+id: stavropad
+name: Stavropad
 type: shield
 url: https://example.com
 features:

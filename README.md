@@ -1,4 +1,4 @@
-# Macropad
+# Stavropad
 
 A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
 
@@ -61,7 +61,7 @@ Key positions:
 - Hold the modifier key and tap any key to return to a normal layer.
 ## Customize
 
-Edit `config/boards/shields/macropad/macropad.keymap`.
+Edit `config/stavropad.keymap`.
 
 ## Building
 
@@ -74,7 +74,7 @@ Run the build script:
 ```
 
 This uses Docker to build the firmware. Output is `build/zephyr/zmk.uf2`.
-The custom shield and keymap live under `config/boards/shields/macropad`.
+The custom shield and keymap live under `config/boards/shields/stavropad`.
 
 Pin mappings for each version are in `pins_v1.overlay` and `pins_v2.overlay`.
 
