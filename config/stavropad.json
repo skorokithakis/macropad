@@ -1,35 +1,11 @@
 [
-  {
-    "name": "Stavropad",
-    "author": "Stavros",
-    "switchMount": "cherry",
-    "pcb": true
-  },
-  [
     {
-      "a": 7
+        "name": "Layer 10: OnShape Sketch Tools",
+        "author": "Stavros",
+        "switchMount": "cherry"
     },
-    "",
-    "",
-    "",
-    ""
-  ],
-  [
-    "",
-    "",
-    "",
-    ""
-  ],
-  [
-    "",
-    "",
-    "",
-    ""
-  ],
-  [
-    "",
-    "",
-    "",
-    ""
-  ]
+    ["Line", "Rect\n\n\n\nCorner", "Circle\n\n\n\n3-pt", "Arc\n\n\n\nCenter"],
+    ["Polyg", "Spline", "Point", "Text"],
+    ["Use", "Offset", "Constr", "New Sketch"],
+    ["Extr", "Fillet", "Esc", "Enter\n\n\n\n→Constr"]
 ]
