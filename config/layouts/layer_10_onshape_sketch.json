@@ -1,7 +1,7 @@
 [
   {"name": "Layer 10: OnShape Sketch Tools"},
-  ["Line", "Rect\n\n\n\nCornr", "Circl\n\n\n\n3-pt", "Arc\n\n\n\nCentr"],
-  ["Polyg", "Splin", "Point", "Text"],
-  ["Use", "Offst", "Cnstr", "New\nSktch"],
-  ["Trim", "Mirrr", "Esc\n\n\n\n→Feat", "Enter\n\n\n\n→Cnst"]
+  ["Line", "Rect\n\n\n\nCornr", "Circl", "Arc"],
+  ["Point", "Use", "Offst", "Cnstr"],
+  ["", "Trim", "", ""],
+  ["Dim", "", "Esc\n\n\n\n→Feat", "Enter\n\n\n\n→Cnst"]
 ]

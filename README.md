@@ -37,18 +37,18 @@ Key positions:
 
 **Normal layers**
 
-- **Layer 0**: Hotkeys for numbers and symbols (1-0, - = [ ] \ `).
-- **Layer 1**: Hotkeys for letters A-P.
-- **Layer 2**: Hotkeys for letters Q-Z and punctuation (; ' , . / Space).
-- **Layer 3**: Hotkeys for function keys F1-F12 and modifiers (Tab, Esc, Enter, Backspace).
-- **Layer 4**: Text macros (16 phrases including "nootropia", "bro", "type shit", "imastan big bottle boys", "afto pou leipei einai to mialo", "doulevo san pisinos", "de to paizo magkas").
-- **Layer 5**: Media controls (shuffle/repeat/rewind/ff, brightness/print screen, volume/mute, prev/play/stop/next).
-- **Layer 6**: Mouse control (scroll up/down and back/forward on left, 8-directional movement, clicks on bottom row, hold center for scroll).
-- **Layer 7**: Gaming (ESC/1/2/3, Shift/Q/W/E, Ctrl/A/S/D, Tab/Alt/Enter/Space).
-- **Layer 8**: Numpad (7-8-9/*, 4-5-6/-, 1-2-3/+, 0/./Enter/).
-- **Layer 9**: Cluster (1/2/3/4, Q/W/E/R, A/S/D/F, Z/X/C/V).
-- **Layer 10**: OnShape Sketch Tools (Line, Rect, Circle, Arc, Polygon, Spline, Point, Text, Use, Offset, Construction, New Sketch, Trim, Mirror, Esc, Enter). Long-press: Rect (corner), Circle (3-pt), Arc (center). Hold Esc for Features sublayer, hold Enter for Constraints sublayer.
-- **Layers 11-14**: Placeholder layers.
+- **Layer 0**: Hotkeys (numbers and symbols)
+- **Layer 1**: Hotkeys (letters A-P)
+- **Layer 2**: Hotkeys (letters Q-Z and punctuation)
+- **Layer 3**: Hotkeys (function keys and modifiers)
+- **Layer 4**: Text macros
+- **Layer 5**: Media controls
+- **Layer 6**: Mouse control
+- **Layer 7**: Gaming
+- **Layer 8**: Numpad
+- **Layer 9**: Cluster
+- **Layer 10**: OnShape Sketch Tools
+- **Layers 11-14**: Placeholder layers
 
 **Special layers**
 
@@ -58,15 +58,8 @@ Key positions:
 
 **OnShape sublayers (accessed from Layer 10)**
 
-- **Layer 18**: OnShape Constraints (hold Enter). Dimension, Horizontal, Vertical, Coincident, Tangent, Equal, Normal, Parallel, Perpendicular, Fix, Midpoint, Concentric, Mirror, Symmetric, Curvature.
-- **Layer 19**: OnShape Features (hold Esc). Extrude, Revolve, Sweep, Loft, Fillet, Chamfer, Shell, Draft, Pattern, Mirror, Boolean, Split, Plane, Sketch On.
-
-## Bluetooth control
-
-- Keys 0-13 select Bluetooth profiles 0-13.
-- Key 12 tap selects Bluetooth profile 14.
-- Key 15 clears all stored Bluetooth bonds.
-- Hold the modifier key and tap any key to return to a normal layer.
+- **Layer 18**: OnShape Constraints (hold Enter)
+- **Layer 19**: OnShape Features (hold Esc)
 ## Customize
 
 Edit `config/stavropad.keymap`.

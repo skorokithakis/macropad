@@ -137,22 +137,10 @@
         };
 
         // OnShape sketch tool macros.
-        os_center_rect: os_center_rect {
+        os_point: os_point {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(R)>;
-        };
-
-        os_3pt_circle: os_3pt_circle {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(C)>;
-        };
-
-        os_center_arc: os_center_arc {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LS(A)>;
+            bindings = <&kp LS(S)>;
         };
 
         os_new_sketch: os_new_sketch {
@@ -359,7 +347,7 @@
             bindings = <&mo>, <&bt_sel_14_macro>;
         };
 
-        // Layer 10 (OnShape Sketch): Tap sends Trim (T), hold activates layer 16.
+        // Layer 10 (OnShape Sketch): Tap sends Dimension (D), hold activates layer 16.
         lt_layer10: lt_layer10 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -369,31 +357,13 @@
         };
 
         // OnShape long-press behaviors (150ms threshold).
-        // Tap: center rect (Shift+R), Hold: corner rect (R).
+        // Tap: corner rect (G), Hold: center rect (R).
         os_rect_ht: os_rect_ht {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <150>;
-            bindings = <&kp>, <&os_center_rect>;
-        };
-
-        // Tap: center circle (C), Hold: 3-point circle (Shift+C).
-        os_circle_ht: os_circle_ht {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <150>;
-            bindings = <&os_3pt_circle>, <&kp>;
-        };
-
-        // Tap: 3-point arc (A), Hold: center arc (Shift+A).
-        os_arc_ht: os_arc_ht {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <150>;
-            bindings = <&os_center_arc>, <&kp>;
+            bindings = <&kp>, <&kp>;
         };
 
         // Layer 10 key 14: Tap sends Esc, hold activates layer 19 (Features).
@@ -516,13 +486,13 @@
         };
 
         // Layer 10: OnShape Sketch Tools.
-        // Long-press keys: Rect (tap=center, hold=corner), Circle (tap=center, hold=3pt), Arc (tap=3pt, hold=center).
+        // Long-press key 1: Rect (tap=center r, hold=corner g).
         layer_10 {
             bindings = <
-                &kp L              &os_rect_ht R 0    &os_circle_ht 0 C  &os_arc_ht 0 A
-                &kp G              &kp S              &kp P              &kp X
-                &kp U              &kp O              &kp Q              &os_new_sketch
-                &lt_layer10 16 T   &kp M              &os_esc_features 19 ESC &os_enter_constraints 18 RET
+                &kp L              &os_rect_ht G R    &kp C              &kp A
+                &kp LS(S)          &kp U              &kp O              &kp Q
+                &none              &kp M              &none              &none
+                &lt_layer10 16 D   &none              &os_esc_features 19 ESC &os_enter_constraints 18 RET
             >;
         };
 
