@@ -1,7 +1,7 @@
 [
   {"name": "Layer 18: OnShape Constraints"},
   ["Dimen", "Horiz", "Vert", "Coinc"],
-  ["Tangt", "Equal", "Norml", "Parll"],
-  ["Perp", "Fix", "Midpt", "Cncnt"],
-  ["Mirrr", "Symmt", "Curvt", ""]
+  ["Tangt", "Equal", "Parll", "Perp"],
+  ["Cncnt", "Midpt", "Symmt", "Fix"],
+  ["Norml", "Curvt", "Pierc", ""]
 ]

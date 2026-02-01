@@ -158,7 +158,7 @@
         os_revolve: os_revolve {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LS(R)>;
+            bindings = <&kp LS(W)>;
         };
 
         os_sweep: os_sweep {
@@ -572,19 +572,19 @@
         layer_18 {
             bindings = <
                 &kp D          &kp H          &kp V          &kp I
-                &kp T          &kp E          &kp N          &kp EQUAL
-                &kp BSLH       &kp F          &kp DOT        &kp O
-                &kp M          &kp Y          &kp B          &trans
+                &kp T          &kp E          &kp B          &kp LS(L)
+                &kp LS(O)      &kp LS(M)      &kp LS(Q)      &kp LS(J)
+                &kp LS(K)      &kp LS(U)      &kp LS(G)      &none
             >;
         };
 
         // Layer 19: OnShape Features (activated by holding Esc on layer 10).
         layer_19 {
             bindings = <
-                &os_extrude    &os_revolve    &os_sweep      &os_loft
-                &os_fillet     &os_chamfer    &os_shell      &os_draft
-                &os_pattern    &os_mirror_feat &os_boolean   &os_split
-                &os_plane      &os_sketch_on  &trans         &trans
+                &os_extrude    &os_revolve    &none          &none
+                &os_fillet     &none          &none          &none
+                &none          &none          &none          &none
+                &none          &none          &none          &none
             >;
         };
     };

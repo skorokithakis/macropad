@@ -1,7 +1,7 @@
 [
   {"name": "Layer 19: OnShape Features"},
-  ["Extrd", "Revlv", "Sweep", "Loft"],
-  ["Fillt", "Chmfr", "Shell", "Draft"],
-  ["Pattn", "Mirrr", "Booln", "Split"],
-  ["Plane", "Sktch\nOn", "", ""]
+  ["Extrd", "Revlv", "", ""],
+  ["Fillt", "", "", ""],
+  ["", "", "", ""],
+  ["", "", "", ""]
 ]

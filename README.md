@@ -56,10 +56,10 @@ Key positions:
 - **Battery voltage**: Types a voltage readout.
 - **Bootloader**: Enters bootloader mode.
 
-**OnShape sublayers (accessed from Layer 10)**
+**OnShape sub layers (accessed from Layer 10)**
 
-- **Layer 18**: OnShape Constraints (hold Enter)
-- **Layer 19**: OnShape Features (hold Esc)
+- **Layer 18**: OnShape Constraints (hold Enter). Shortcuts: D, H, V, I, T, E, B, Shift + L, Shift + O, Shift + M, Shift + Q, Shift + J, Shift + K, Shift + U, Shift + G.
+- **Layer 19**: OnShape Features (hold Escape). Shortcuts: Shift + E (Extrude), Shift + W (Revolve), Shift + F (Fillet). Remaining keys are empty.
 ## Customize
 
 Edit `config/stavropad.keymap`.
