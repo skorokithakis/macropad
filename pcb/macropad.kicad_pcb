@@ -17464,7 +17464,7 @@
 			(justify bottom)
 		)
 	)
-	(gr_text "ON/OFF"
+	(gr_text "OFF - ON"
 		(at 52.705 32.258 0)
 		(layer "B.SilkS")
 		(uuid "1004ab3c-80e3-4f60-95b8-452a0cd81e76")
