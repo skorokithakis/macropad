@@ -509,7 +509,7 @@
                 &kp L              &os_rect_ht G R    &kp C              &kp A
                 &kp LS(S)          &kp U              &kp O              &kp Q
                 &none              &kp M              &none              &os_zero_numbers 20 N0
-                &lt_layer10 16 D   &none              &os_esc_features 19 ESC &os_enter_constraints 18 RET
+                &lt_layer10 16 D   &kp DEL            &os_esc_features 19 ESC &os_enter_constraints 18 RET
             >;
         };
 
