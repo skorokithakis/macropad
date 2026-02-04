@@ -30,8 +30,10 @@ OUTPUT_DIR = REPO_ROOT / "misc" / "layouts"
 KEYMAPS_FILE = REPO_ROOT / "KEYMAPS.md"
 
 
-TARGET_WIDTH = 849
-TARGET_HEIGHT = 848
+CROP_WIDTH = 849
+CROP_HEIGHT = 848
+OUTPUT_WIDTH = 425
+OUTPUT_HEIGHT = 424
 
 
 def render_kle(input_path: Path, output_path: Path) -> Path:
@@ -45,12 +47,13 @@ def render_kle(input_path: Path, output_path: Path) -> Path:
         )
     response.raise_for_status()
 
-    # Crop the image to the target size, keeping the top portion.
+    # Crop the image to remove excess whitespace, then resize to half size.
     image = Image.open(io.BytesIO(response.content))
-    cropped = image.crop((0, 0, TARGET_WIDTH, TARGET_HEIGHT))
+    cropped = image.crop((0, 0, CROP_WIDTH, CROP_HEIGHT))
+    resized = cropped.resize((OUTPUT_WIDTH, OUTPUT_HEIGHT), Image.Resampling.LANCZOS)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    cropped.save(output_path, "PNG")
+    resized.save(output_path, "PNG")
     print(f"Rendered {input_path.name} -> {output_path}")
     return output_path
 
