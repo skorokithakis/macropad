@@ -12,12 +12,8 @@ Render KLE JSON layout files to PNG images.
 When run without arguments, detects which layout files in config/layouts/
 have uncommitted changes (or changed in the previous commit if nothing is
 uncommitted) and renders those. Also regenerates KEYMAPS.md.
-
-Usage:
-    ./render_kle.py              # Render changed layouts, update KEYMAPS.md
-    ./render_kle.py --all        # Render all layouts, update KEYMAPS.md
-    ./render_kle.py <file.json>  # Render a single file (legacy mode)
 """
+import argparse
 import io
 import json
 import re
@@ -178,17 +174,46 @@ def generate_keymaps_md() -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Render KLE JSON layout files to PNG images.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s              Render changed layouts, update KEYMAPS.md
+  %(prog)s --all        Render all layouts, update KEYMAPS.md
+  %(prog)s layout.json  Render a single JSON file
+
+When run without arguments, detects which layout files in config/layouts/
+have uncommitted changes (or changed in the previous commit if nothing is
+uncommitted) and renders those. Also regenerates KEYMAPS.md.
+""",
+    )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="render all layouts instead of just changed ones",
+    )
+    parser.add_argument(
+        "file",
+        nargs="?",
+        help="single JSON file to render (optional)",
+    )
+    args = parser.parse_args()
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Legacy single-file mode.
-    if len(sys.argv) == 2 and sys.argv[1].endswith(".json"):
-        input_path = Path(sys.argv[1])
+    # Single-file mode.
+    if args.file:
+        input_path = Path(args.file)
+        if not input_path.exists():
+            print(f"Error: File not found: {input_path}", file=sys.stderr)
+            sys.exit(1)
         output_path = OUTPUT_DIR / f"{input_path.stem}.png"
         render_kle(input_path, output_path)
         return
 
     # Determine which layouts to render.
-    if "--all" in sys.argv:
+    if args.all:
         layouts = get_all_layouts()
         print(f"Rendering all {len(layouts)} layouts...")
     else:

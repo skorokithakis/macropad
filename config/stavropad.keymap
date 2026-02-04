@@ -233,6 +233,13 @@
             bindings = <&kp LS(S)>;
         };
 
+        // Types "mm" for millimeters.
+        os_mm: os_mm {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp M &kp M>;
+        };
+
     };
 
     behaviors {
@@ -383,6 +390,15 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
         };
+
+        // Layer 10 key 11: Tap sends 0, hold activates layer 20 (Numbers).
+        os_zero_numbers: os_zero_numbers {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
     };
 
     keymap {
@@ -487,11 +503,12 @@
 
         // Layer 10: OnShape Sketch Tools.
         // Long-press key 1: Rect (tap=center r, hold=corner g).
+        // Key 11: Tap sends 0, hold activates layer 20 (Numbers).
         layer_10 {
             bindings = <
                 &kp L              &os_rect_ht G R    &kp C              &kp A
                 &kp LS(S)          &kp U              &kp O              &kp Q
-                &none              &kp M              &none              &none
+                &none              &kp M              &none              &os_zero_numbers 20 N0
                 &lt_layer10 16 D   &none              &os_esc_features 19 ESC &os_enter_constraints 18 RET
             >;
         };
@@ -585,6 +602,16 @@
                 &os_fillet     &none          &none          &none
                 &none          &none          &none          &none
                 &none          &none          &none          &none
+            >;
+        };
+
+        // Layer 20: OnShape Numbers (activated by holding key 11 on layer 10).
+        layer_20 {
+            bindings = <
+                &kp N7         &kp N8         &kp N9         &kp STAR
+                &kp N4         &kp N5         &kp N6         &os_mm
+                &kp N1         &kp N2         &kp N3         &none
+                &kp N0         &kp DOT        &kp PLUS       &kp BSPC
             >;
         };
     };

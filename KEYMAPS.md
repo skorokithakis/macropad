@@ -81,3 +81,7 @@ Visual reference for all keymap layers.
 ## Layer 19: OnShape Features
 
 ![Layer 19: OnShape Features](misc/layouts/layer_19_onshape_features.png)
+
+## Layer 20: OnShape Numbers
+
+![Layer 20: OnShape Numbers](misc/layouts/layer_20_onshape_numbers.png)

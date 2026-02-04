@@ -60,6 +60,7 @@ Key positions:
 
 - **Layer 18**: OnShape Constraints (hold Enter). Shortcuts: D, H, V, I, T, E, B, Shift + L, Shift + O, Shift + M, Shift + Q, Shift + J, Shift + K, Shift + U, Shift + G.
 - **Layer 19**: OnShape Features (hold Escape). Shortcuts: Shift + E (Extrude), Shift + W (Revolve), Shift + F (Fillet). Remaining keys are empty.
+- **Layer 20**: OnShape Numbers (hold key 11). Numpad layout (7-8-9, 4-5-6, 1-2-3, 0) with *, mm macro, +, decimal point, and backspace.
 ## Customize
 
 Edit `config/stavropad.keymap`.
