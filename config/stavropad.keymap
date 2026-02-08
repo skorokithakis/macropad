@@ -391,8 +391,8 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Layer 10 key 11: Tap sends 0, hold activates layer 20 (Numbers).
-        os_zero_numbers: os_zero_numbers {
+        // Layer 10 key 11: Tap sends Ctrl+Z (undo), hold activates layer 20 (Numbers).
+        os_undo_numbers: os_undo_numbers {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -503,12 +503,12 @@
 
         // Layer 10: OnShape Sketch Tools.
         // Long-press key 1: Rect (tap=center r, hold=corner g).
-        // Key 11: Tap sends 0, hold activates layer 20 (Numbers).
+        // Key 10: Ctrl+, (preferences). Key 11: Tap sends Ctrl+Z (undo), hold activates layer 20 (Numbers).
         layer_10 {
             bindings = <
                 &kp L              &os_rect_ht G R    &kp C              &kp A
                 &kp LS(S)          &kp U              &kp O              &kp Q
-                &none              &kp M              &none              &os_zero_numbers 20 N0
+                &none              &kp M              &kp LC(COMMA)      &os_undo_numbers 20 LC(Z)
                 &lt_layer10 16 D   &kp DEL            &os_esc_features 19 ESC &os_enter_constraints 18 RET
             >;
         };
