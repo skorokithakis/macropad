@@ -141,7 +141,10 @@ def generate_keymaps_md() -> None:
         print("No layouts found, skipping KEYMAPS.md generation")
         return
 
-    # Collect layout info and sort by layer number.
+    # Collect layout info and sort by layer number, grouping sub-layers with
+    # their parent. Layers sharing a filename prefix (e.g. "onshape_sketch" and
+    # "onshape_constraints" both have prefix "onshape") are sorted together,
+    # placed at the position of the lowest-numbered layer in the group.
     layout_info = []
     for layout_path in layouts:
         info = parse_layout_info(layout_path)
@@ -149,9 +152,20 @@ def generate_keymaps_md() -> None:
         info["png_exists"] = png_path.exists()
         info["png_relative"] = f"misc/layouts/{layout_path.stem}.png"
         info["json_relative"] = f"config/layouts/{layout_path.name}"
+
+        # Extract prefix from filename: "layer_10_onshape_sketch" → "onshape".
+        match = re.match(r"layer_\d+_([^_]+)", layout_path.stem)
+        info["prefix"] = match.group(1) if match else layout_path.stem
         layout_info.append(info)
 
-    layout_info.sort(key=lambda x: x["number"])
+    # Build a map of prefix → lowest layer number in that group.
+    prefix_min: dict[str, int] = {}
+    for info in layout_info:
+        prefix = info["prefix"]
+        if prefix not in prefix_min or info["number"] < prefix_min[prefix]:
+            prefix_min[prefix] = info["number"]
+
+    layout_info.sort(key=lambda x: (prefix_min[x["prefix"]], x["number"]))
 
     # Generate markdown.
     lines = [
