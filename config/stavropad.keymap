@@ -136,6 +136,13 @@
             bindings = <&bt BT_SEL 14>;
         };
 
+        // Wrapper macro to clear all BT bonds for use with hold-tap.
+        bt_clr_all_macro: bt_clr_all_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR_ALL>;
+        };
+
         // OnShape sketch tool macros.
         os_point: os_point {
             compatible = "zmk,behavior-macro";
@@ -282,13 +289,13 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Layer 4: Tap sends "de to paizo magkas" macro.
+        // Layer 4: Tap sends "doulevo san pisinos" macro.
         lt_layer4: lt_layer4 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&phrase_de_to_paizo_magkas>;
+            bindings = <&mo>, <&phrase_doulevo_san_pisinos>;
         };
 
         // Layer 5: Tap sends play/pause.
@@ -345,13 +352,13 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Layer 15 (Bluetooth): Tap selects BT profile 14.
+        // Layer 15 (Bluetooth): Tap clears all BT bonds.
         lt_layer15: lt_layer15 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&bt_sel_14_macro>;
+            bindings = <&mo>, <&bt_clr_all_macro>;
         };
 
         // Layer 10 (OnShape Sketch): Tap sends Dimension (D), hold activates layer 16.
@@ -449,7 +456,7 @@
                 &phrase_notropia           &phrase_and_shit                &phrase_bro                  &phrase_dont_do_dis_shit
                 &phrase_respect             &phrase_type_shit               &phrase_failing_to_prepare   &phrase_exelixi
                 &phrase_eimai_panta_etoimos &phrase_read_a_book             &phrase_to_great_reset       &phrase_open_the_fuckin_pita
-                &phrase_doulevo_san_pisinos &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei &lt_layer4 16 0
+                &phrase_de_to_paizo_magkas &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei &lt_layer4 16 0
             >;
         };
 
@@ -560,7 +567,7 @@
                 &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3
                 &bt BT_SEL 4   &bt BT_SEL 5   &bt BT_SEL 6   &bt BT_SEL 7
                 &bt BT_SEL 8   &bt BT_SEL 9   &bt BT_SEL 10  &bt BT_SEL 11
-                &bt BT_CLR_ALL &bt BT_SEL 12 &bt BT_SEL 13 &lt_layer15 16 0
+                &bt BT_SEL 12 &bt BT_SEL 13 &bt BT_SEL 14 &lt_layer15 16 0
             >;
         };
 
