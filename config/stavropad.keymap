@@ -273,7 +273,7 @@
         // Hold-tap behaviors for key 15 on each layer.
         // Hold activates layer 16 (layer selection), tap performs layer-specific action.
 
-        // Layer 0: Tap sends hotkey F12.
+        // Layers 0-3: Tap sends a keypress, hold activates layer 16.
         lt_layer0: lt_layer0 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -327,7 +327,7 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Layer 8 (Numpad): Tap sends equals.
+        // Layer 8 (Numpad): Tap sends a keypress, hold activates layer 16.
         lt_layer8: lt_layer8 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -336,7 +336,7 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Layer 9 (QWERTY): Tap sends N.
+        // Layer 9 (QWERTY): Tap sends a keypress, hold activates layer 16.
         lt_layer9: lt_layer9 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -410,7 +410,7 @@
                 &kp RC(LS(LG(N1)))   &kp RC(LS(LG(N2)))   &kp RC(LS(LG(N3)))   &kp RC(LS(LG(N4)))
                 &kp RC(LS(LG(N5)))   &kp RC(LS(LG(N6)))   &kp RC(LS(LG(N7)))   &kp RC(LS(LG(N8)))
                 &kp RC(LS(LG(N9)))   &kp RC(LS(LG(N0)))   &kp RC(LS(LG(MINUS))) &kp RC(LS(LG(EQUAL)))
-                &kp RC(LS(LG(LBKT))) &kp RC(LS(LG(RBKT))) &kp RC(LS(LG(BSLH))) &lt_layer0 16 RC(LS(LG(GRAVE)))
+                &kp RC(LS(LG(GRAVE))) &kp RC(LS(LG(LBKT))) &kp RC(LS(LG(RBKT))) &lt_layer0 16 RC(LS(LG(BSLH)))
             >;
         };
 
@@ -420,7 +420,7 @@
                 &kp RC(LS(LG(A)))    &kp RC(LS(LG(B)))    &kp RC(LS(LG(C)))    &kp RC(LS(LG(D)))
                 &kp RC(LS(LG(E)))    &kp RC(LS(LG(F)))    &kp RC(LS(LG(G)))    &kp RC(LS(LG(H)))
                 &kp RC(LS(LG(I)))    &kp RC(LS(LG(J)))    &kp RC(LS(LG(K)))    &kp RC(LS(LG(L)))
-                &kp RC(LS(LG(N))) &kp RC(LS(LG(O))) &kp RC(LS(LG(P))) &lt_layer0 16 RC(LS(LG(M)))
+                &kp RC(LS(LG(M))) &kp RC(LS(LG(N))) &kp RC(LS(LG(O))) &lt_layer0 16 RC(LS(LG(P)))
             >;
         };
 
@@ -430,7 +430,7 @@
                 &kp RC(LS(LG(Q)))    &kp RC(LS(LG(R)))    &kp RC(LS(LG(S)))    &kp RC(LS(LG(T)))
                 &kp RC(LS(LG(U)))    &kp RC(LS(LG(V)))    &kp RC(LS(LG(W)))    &kp RC(LS(LG(X)))
                 &kp RC(LS(LG(Y)))    &kp RC(LS(LG(Z)))    &kp RC(LS(LG(SEMI))) &kp RC(LS(LG(SQT)))
-                &kp RC(LS(LG(DOT))) &kp RC(LS(LG(FSLH))) &kp RC(LS(LG(SPACE))) &lt_layer0 16 RC(LS(LG(COMMA)))
+                &kp RC(LS(LG(COMMA))) &kp RC(LS(LG(DOT))) &kp RC(LS(LG(FSLH))) &lt_layer0 16 RC(LS(LG(SPACE)))
             >;
         };
 
@@ -440,7 +440,7 @@
                 &kp RC(LS(LG(F1)))   &kp RC(LS(LG(F2)))   &kp RC(LS(LG(F3)))   &kp RC(LS(LG(F4)))
                 &kp RC(LS(LG(F5)))   &kp RC(LS(LG(F6)))   &kp RC(LS(LG(F7)))   &kp RC(LS(LG(F8)))
                 &kp RC(LS(LG(F9)))   &kp RC(LS(LG(F10)))  &kp RC(LS(LG(F11)))  &kp RC(LS(LG(F12)))
-                &kp RC(LS(LG(ESC))) &kp RC(LS(LG(RET))) &kp RC(LS(LG(BSPC))) &lt_layer0 16 RC(LS(LG(TAB)))
+                &kp RC(LS(LG(TAB))) &kp RC(LS(LG(ESC))) &kp RC(LS(LG(RET))) &lt_layer0 16 RC(LS(LG(BSPC)))
             >;
         };
 
@@ -449,7 +449,7 @@
                 &phrase_notropia           &phrase_and_shit                &phrase_bro                  &phrase_dont_do_dis_shit
                 &phrase_respect             &phrase_type_shit               &phrase_failing_to_prepare   &phrase_exelixi
                 &phrase_eimai_panta_etoimos &phrase_read_a_book             &phrase_to_great_reset       &phrase_open_the_fuckin_pita
-                &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei      &phrase_doulevo_san_pisinos &lt_layer4 16 0
+                &phrase_doulevo_san_pisinos &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei &lt_layer4 16 0
             >;
         };
 
@@ -458,7 +458,7 @@
                 &kp C_SHUFFLE  &kp C_REPEAT   &kp C_RW       &kp C_FF
                 &kp C_BRI_DN   &kp C_BRI_UP   &none          &kp PSCRN
                 &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE     &none
-                &kp C_PP &kp C_STOP     &kp C_NEXT &lt_layer5 16 C_PREV
+                &kp C_PREV &kp C_PP &kp C_STOP &lt_layer5 16 C_NEXT
             >;
         };
 
@@ -487,7 +487,7 @@
                 &kp N7  &kp N8  &kp N9  &kp STAR
                 &kp N4  &kp N5  &kp N6  &kp MINUS
                 &kp N1  &kp N2  &kp N3  &kp PLUS
-                &kp DOT &kp RET &kp SLASH &lt_layer8 16 N0
+                &kp N0 &kp DOT &kp RET &lt_layer8 16 SLASH
             >;
         };
 
@@ -497,7 +497,7 @@
                 &kp N1 &kp N2 &kp N3 &kp N4
                 &kp Q  &kp W  &kp E  &kp R
                 &kp A  &kp S  &kp D  &kp F
-                &kp X &kp C &kp V &lt_layer9 16 Z
+                &kp Z &kp X &kp C &lt_layer9 16 V
             >;
         };
 
@@ -510,7 +510,7 @@
                 &kp L              &os_rect_ht G R    &kp C              &kp A
                 &kp LS(S)          &kp U              &kp O              &kp Q
                 &none              &kp M              &os_hold_constraints 18 LC(COMMA) &os_undo_numbers 20 LC(Z)
-                &kp DEL            &os_esc_features 19 ESC &kp RET        &lt_layer10 16 D
+                &kp D              &kp DEL            &os_esc_features 19 ESC &lt_layer10 16 RET
             >;
         };
 
@@ -560,7 +560,7 @@
                 &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3
                 &bt BT_SEL 4   &bt BT_SEL 5   &bt BT_SEL 6   &bt BT_SEL 7
                 &bt BT_SEL 8   &bt BT_SEL 9   &bt BT_SEL 10  &bt BT_SEL 11
-                &bt BT_SEL 12 &bt BT_SEL 13 &bt BT_CLR_ALL &lt_layer15 16 0
+                &bt BT_CLR_ALL &bt BT_SEL 12 &bt BT_SEL 13 &lt_layer15 16 0
             >;
         };
 
@@ -586,7 +586,7 @@
             >;
         };
 
-        // Layer 18: OnShape Constraints (activated by holding Enter on layer 10).
+        // Layer 18: OnShape Constraints (activated by holding key 10 on layer 10).
         layer_18 {
             bindings = <
                 &kp D          &kp H          &kp V          &kp I

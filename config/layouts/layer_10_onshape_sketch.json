@@ -3,5 +3,5 @@
   ["Line", "Rect\n\n\n\nCornr", "Circl", "Arc"],
   ["Point", "Use", "Offst", "Cnstr"],
   ["", "Trim", "C-,\n\n\n\n→Cnst", "Undo\n\n\n\n→Nums"],
-  ["Del", "Esc\n\n\n\n→Feat", "Enter", "Dim"]
+  ["Dim", "Del", "Esc\n\n\n\n→Feat", "Enter"]
 ]

@@ -3,5 +3,5 @@
   ["Shffl", "Rept", "Rew", "Fwd"],
   ["Bri-", "Bri+", "", "PrtSc"],
   ["Vol-", "Vol+", "Mute", ""],
-  ["Play", "Stop", "Next", "Prev"]
+  ["Prev", "Play", "Stop", "Next"]
 ]
