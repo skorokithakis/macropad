@@ -2,6 +2,6 @@
   {"name": "Layer 10: OnShape Sketch Tools"},
   ["Line", "Rect\n\n\n\nCornr", "Circl", "Arc"],
   ["Point", "Use", "Offst", "Cnstr"],
-  ["", "Trim", "C-,", "Undo\n\n\n\n→Nums"],
-  ["Dim", "Del", "Esc\n\n\n\n→Feat", "Enter\n\n\n\n→Cnst"]
+  ["", "Trim", "C-,\n\n\n\n→Cnst", "Undo\n\n\n\n→Nums"],
+  ["Del", "Esc\n\n\n\n→Feat", "Enter", "Dim"]
 ]

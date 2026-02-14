@@ -1,7 +1,7 @@
 [
   {"name": "Layer 6: Mouse"},
-  ["ScrUp", "↖", "↑", "↗"],
-  ["ScrDn", "←", "Scrol", "→"],
-  ["MB5", "↙", "↓", "↘"],
-  ["MB4", "LClk", "MClk", "RClk"]
+  ["↖", "↑", "↗", "ScrUp"],
+  ["←", "Scrol", "→", "ScrDn"],
+  ["↙", "↓", "↘", "MB5"],
+  ["LClk", "MClk", "RClk", "MB4"]
 ]

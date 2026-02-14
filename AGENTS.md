@@ -15,26 +15,26 @@ After every change to the keymap or configuration:
 ## Layer switching architecture
 
 **Normal layer switching:**
-- Hold key 12 (bottom-left) to activate the layer switcher.
-- While holding key 12, tap any other key to immediately switch to the corresponding user layer.
+- Hold the layer-switching key (bottom-right, key 15) to activate the layer switcher.
+- While holding the layer-switching key, tap any other key to immediately switch to the corresponding user layer.
 
 **Special layer switching:**
-- While holding key 12, hold another key for 1 second to access special functions.
+- While holding the layer-switching key, hold another key for 1 second to access special functions.
 - Special functions are assigned to keys starting from key 0 and grow sequentially.
 
-**Key 12 on each layer:**
-- Key 12 has a dual function on every layer: tap performs a layer-specific action, hold activates the layer switcher.
+**Layer-switching key on each layer:**
+- The layer-switching key has a dual function on every layer: tap performs a layer-specific action, hold activates the layer switcher.
 - The tap action should be something useful but not something that encourages holding (to avoid accidental layer switching).
 
 ## Layer discussions
 
-When discussing layers, treat key 12 (bottom-left) like any other key. Only mention its hold-to-switch-layer function when layer switching is specifically being discussed. When talking about macros or tap actions, just show what it sends on tap.
+When discussing layers, treat the layer-switching key like any other key. Only mention its hold-to-switch-layer function when layer switching is specifically being discussed. When talking about macros or tap actions, just show what it sends on tap.
 
-## Key 12 warnings
+## Layer-switching key warnings
 
-When proposing or assigning a function to key 12 that might cause the user to hold it down (e.g., drag lock, toggle behaviors, mouse movement, or anything that encourages sustained pressing), warn the user that this could accidentally trigger the layer switcher.
+When proposing or assigning a function to the layer-switching key that might cause the user to hold it down (e.g., drag lock, toggle behaviors, mouse movement, or anything that encourages sustained pressing), warn the user that this could accidentally trigger the layer switcher.
 
-Note that you shouldn't avoid assigning shortcuts to key 12 altogether (since it can be tapped), only avoid assigning shortcuts that might be *held*.
+Note that you shouldn't avoid assigning shortcuts to the layer-switching key altogether (since it can be tapped), only avoid assigning shortcuts that might be *held*.
 
 ## Layout files
 

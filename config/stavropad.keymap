@@ -270,7 +270,7 @@
             bindings = <&bt_layer_macro>, <&to>;
         };
 
-        // Hold-tap behaviors for key 12 on each layer.
+        // Hold-tap behaviors for key 15 on each layer.
         // Hold activates layer 16 (layer selection), tap performs layer-specific action.
 
         // Layer 0: Tap sends hotkey F12.
@@ -373,7 +373,7 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Layer 10 key 14: Tap sends Esc, hold activates layer 19 (Features).
+        // Layer 10 key 13: Tap sends Esc, hold activates layer 19 (Features).
         os_esc_features: os_esc_features {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -382,8 +382,8 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Layer 10 key 15: Tap sends Enter, hold activates layer 18 (Constraints).
-        os_enter_constraints: os_enter_constraints {
+        // Tap sends key, hold activates layer 18 (OnShape Constraints).
+        os_hold_constraints: os_hold_constraints {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
@@ -391,7 +391,7 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // Layer 10 key 11: Tap sends Ctrl+Z (undo), hold activates layer 20 (Numbers).
+        // Key 11: Tap sends Ctrl+Z (undo), hold activates layer 20 (Numbers).
         os_undo_numbers: os_undo_numbers {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -410,7 +410,7 @@
                 &kp RC(LS(LG(N1)))   &kp RC(LS(LG(N2)))   &kp RC(LS(LG(N3)))   &kp RC(LS(LG(N4)))
                 &kp RC(LS(LG(N5)))   &kp RC(LS(LG(N6)))   &kp RC(LS(LG(N7)))   &kp RC(LS(LG(N8)))
                 &kp RC(LS(LG(N9)))   &kp RC(LS(LG(N0)))   &kp RC(LS(LG(MINUS))) &kp RC(LS(LG(EQUAL)))
-                &lt_layer0 16 RC(LS(LG(GRAVE))) &kp RC(LS(LG(LBKT))) &kp RC(LS(LG(RBKT))) &kp RC(LS(LG(BSLH)))
+                &kp RC(LS(LG(LBKT))) &kp RC(LS(LG(RBKT))) &kp RC(LS(LG(BSLH))) &lt_layer0 16 RC(LS(LG(GRAVE)))
             >;
         };
 
@@ -420,7 +420,7 @@
                 &kp RC(LS(LG(A)))    &kp RC(LS(LG(B)))    &kp RC(LS(LG(C)))    &kp RC(LS(LG(D)))
                 &kp RC(LS(LG(E)))    &kp RC(LS(LG(F)))    &kp RC(LS(LG(G)))    &kp RC(LS(LG(H)))
                 &kp RC(LS(LG(I)))    &kp RC(LS(LG(J)))    &kp RC(LS(LG(K)))    &kp RC(LS(LG(L)))
-                &lt_layer0 16 RC(LS(LG(M))) &kp RC(LS(LG(N))) &kp RC(LS(LG(O))) &kp RC(LS(LG(P)))
+                &kp RC(LS(LG(N))) &kp RC(LS(LG(O))) &kp RC(LS(LG(P))) &lt_layer0 16 RC(LS(LG(M)))
             >;
         };
 
@@ -430,7 +430,7 @@
                 &kp RC(LS(LG(Q)))    &kp RC(LS(LG(R)))    &kp RC(LS(LG(S)))    &kp RC(LS(LG(T)))
                 &kp RC(LS(LG(U)))    &kp RC(LS(LG(V)))    &kp RC(LS(LG(W)))    &kp RC(LS(LG(X)))
                 &kp RC(LS(LG(Y)))    &kp RC(LS(LG(Z)))    &kp RC(LS(LG(SEMI))) &kp RC(LS(LG(SQT)))
-                &lt_layer0 16 RC(LS(LG(COMMA))) &kp RC(LS(LG(DOT))) &kp RC(LS(LG(FSLH))) &kp RC(LS(LG(SPACE)))
+                &kp RC(LS(LG(DOT))) &kp RC(LS(LG(FSLH))) &kp RC(LS(LG(SPACE))) &lt_layer0 16 RC(LS(LG(COMMA)))
             >;
         };
 
@@ -440,7 +440,7 @@
                 &kp RC(LS(LG(F1)))   &kp RC(LS(LG(F2)))   &kp RC(LS(LG(F3)))   &kp RC(LS(LG(F4)))
                 &kp RC(LS(LG(F5)))   &kp RC(LS(LG(F6)))   &kp RC(LS(LG(F7)))   &kp RC(LS(LG(F8)))
                 &kp RC(LS(LG(F9)))   &kp RC(LS(LG(F10)))  &kp RC(LS(LG(F11)))  &kp RC(LS(LG(F12)))
-                &lt_layer0 16 RC(LS(LG(TAB))) &kp RC(LS(LG(ESC))) &kp RC(LS(LG(RET))) &kp RC(LS(LG(BSPC)))
+                &kp RC(LS(LG(ESC))) &kp RC(LS(LG(RET))) &kp RC(LS(LG(BSPC))) &lt_layer0 16 RC(LS(LG(TAB)))
             >;
         };
 
@@ -449,7 +449,7 @@
                 &phrase_notropia           &phrase_and_shit                &phrase_bro                  &phrase_dont_do_dis_shit
                 &phrase_respect             &phrase_type_shit               &phrase_failing_to_prepare   &phrase_exelixi
                 &phrase_eimai_panta_etoimos &phrase_read_a_book             &phrase_to_great_reset       &phrase_open_the_fuckin_pita
-                &lt_layer4 16 0             &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei      &phrase_doulevo_san_pisinos
+                &phrase_imastan_big_bottle_boys &phrase_afto_pou_leipei      &phrase_doulevo_san_pisinos &lt_layer4 16 0
             >;
         };
 
@@ -458,16 +458,16 @@
                 &kp C_SHUFFLE  &kp C_REPEAT   &kp C_RW       &kp C_FF
                 &kp C_BRI_DN   &kp C_BRI_UP   &none          &kp PSCRN
                 &kp C_VOL_DN   &kp C_VOL_UP   &kp C_MUTE     &none
-                &lt_layer5 16 C_PREV &kp C_PP &kp C_STOP     &kp C_NEXT
+                &kp C_PP &kp C_STOP     &kp C_NEXT &lt_layer5 16 C_PREV
             >;
         };
 
         layer_6 {
             bindings = <
-                &msc SCRL_UP                    &mmv (MOVE_LEFT+MOVE_UP)        &mmv MOVE_UP                    &mmv (MOVE_RIGHT+MOVE_UP)
-                &msc SCRL_DOWN                  &mmv MOVE_LEFT                  &mo 17                          &mmv MOVE_RIGHT
-                &mkp MB5                        &mmv (MOVE_LEFT+MOVE_DOWN)      &mmv MOVE_DOWN                  &mmv (MOVE_RIGHT+MOVE_DOWN)
-                &lt_layer6 16 MB4               &mkp LCLK                       &mkp MCLK                       &mkp RCLK
+                &mmv (MOVE_LEFT+MOVE_UP)        &mmv MOVE_UP                    &mmv (MOVE_RIGHT+MOVE_UP)       &msc SCRL_UP
+                &mmv MOVE_LEFT                  &mo 17                          &mmv MOVE_RIGHT                 &msc SCRL_DOWN
+                &mmv (MOVE_LEFT+MOVE_DOWN)      &mmv MOVE_DOWN                  &mmv (MOVE_RIGHT+MOVE_DOWN)     &mkp MB5
+                &mkp LCLK                       &mkp MCLK                       &mkp RCLK                       &lt_layer6 16 MB4
             >;
         };
 
@@ -477,7 +477,7 @@
                 &kp ESC    &kp N1     &kp N2     &kp N3
                 &kp LSHIFT &kp Q      &kp W      &kp E
                 &kp LCTRL  &kp A      &kp S      &kp D
-                &lt_layer7_gaming 16 TAB &kp LALT &kp RET &kp SPACE
+                &kp LALT &kp SPACE &kp RET &lt_layer7_gaming 16 TAB
             >;
         };
 
@@ -487,7 +487,7 @@
                 &kp N7  &kp N8  &kp N9  &kp STAR
                 &kp N4  &kp N5  &kp N6  &kp MINUS
                 &kp N1  &kp N2  &kp N3  &kp PLUS
-                &lt_layer8 16 N0 &kp DOT &kp RET &kp SLASH
+                &kp DOT &kp RET &kp SLASH &lt_layer8 16 N0
             >;
         };
 
@@ -497,19 +497,20 @@
                 &kp N1 &kp N2 &kp N3 &kp N4
                 &kp Q  &kp W  &kp E  &kp R
                 &kp A  &kp S  &kp D  &kp F
-                &lt_layer9 16 Z &kp X &kp C &kp V
+                &kp X &kp C &kp V &lt_layer9 16 Z
             >;
         };
 
         // Layer 10: OnShape Sketch Tools.
         // Long-press key 1: Rect (tap=center r, hold=corner g).
-        // Key 10: Ctrl+, (preferences). Key 11: Tap sends Ctrl+Z (undo), hold activates layer 20 (Numbers).
+        // Key 10: Tap sends Ctrl+, (preferences), hold activates layer 18 (Constraints).
+        // Key 11: Tap sends Ctrl+Z (undo), hold activates layer 20 (Numbers).
         layer_10 {
             bindings = <
                 &kp L              &os_rect_ht G R    &kp C              &kp A
                 &kp LS(S)          &kp U              &kp O              &kp Q
-                &none              &kp M              &kp LC(COMMA)      &os_undo_numbers 20 LC(Z)
-                &lt_layer10 16 D   &kp DEL            &os_esc_features 19 ESC &os_enter_constraints 18 RET
+                &none              &kp M              &os_hold_constraints 18 LC(COMMA) &os_undo_numbers 20 LC(Z)
+                &kp DEL            &os_esc_features 19 ESC &kp RET        &lt_layer10 16 D
             >;
         };
 
@@ -519,7 +520,7 @@
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
-                &lt_layer7 16 0 &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &lt_layer7 16 0
             >;
         };
 
@@ -529,7 +530,7 @@
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
-                &lt_layer7 16 0 &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &lt_layer7 16 0
             >;
         };
 
@@ -539,7 +540,7 @@
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
-                &lt_layer7 16 0 &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &lt_layer7 16 0
             >;
         };
 
@@ -549,7 +550,7 @@
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
                 &url_macro &url_macro &url_macro &url_macro
-                &lt_layer7 16 0 &url_macro &url_macro &url_macro
+                &url_macro &url_macro &url_macro &lt_layer7 16 0
             >;
         };
 
@@ -559,19 +560,19 @@
                 &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3
                 &bt BT_SEL 4   &bt BT_SEL 5   &bt BT_SEL 6   &bt BT_SEL 7
                 &bt BT_SEL 8   &bt BT_SEL 9   &bt BT_SEL 10  &bt BT_SEL 11
-                &lt_layer15 16 0 &bt BT_SEL 12 &bt BT_SEL 13 &bt BT_CLR_ALL
+                &bt BT_SEL 12 &bt BT_SEL 13 &bt BT_CLR_ALL &lt_layer15 16 0
             >;
         };
 
-        // Layer 16: Layer selection (activated by holding key 12).
-        // Tap keys 0-11 for layers 0-11, tap keys 13-15 for layers 12-14.
+        // Layer 16: Layer selection (activated by holding key 15).
+        // Tap keys 0-11 for layers 0-11, tap keys 12-14 for layers 12-14.
         // Hold keys 0-2 for 1 second for special functions (battery, Bluetooth, bootloader).
         layer_16 {
             bindings = <
                 &batt_hold 0 0     &bt_layer_hold 0 1 &boot_hold 0 2     &to 3
                 &to 4              &to 5              &to 6              &to 7
                 &to 8              &to 9              &to 10             &to 11
-                &none              &to 12             &to 13             &to 14
+                &to 12             &to 13             &to 14             &none
             >;
         };
 
@@ -610,8 +611,8 @@
             bindings = <
                 &kp N7         &kp N8         &kp N9         &kp STAR
                 &kp N4         &kp N5         &kp N6         &os_mm
-                &kp N1         &kp N2         &kp N3         &none
-                &kp N0         &kp DOT        &kp PLUS       &kp BSPC
+                &kp N1         &kp N2         &kp N3         &kp BSPC
+                &kp N0         &kp DOT        &kp PLUS       &none
             >;
         };
     };

@@ -5,18 +5,18 @@ A 4x4 macro pad running ZMK firmware on a Nice!Nano v2.
 ## Features
 
 - 15 normal layers with 15 usable keys each
-- Layer switching via dedicated modifier key (bottom-left, key 12)
+- Layer switching via dedicated layer-switching key
 - All hotkey layers send RCtrl+Shift+Cmd + a character (for use as global hotkeys)
 - Idle deep sleep enabled; wakes on any key press after inactivity
 - 15 Bluetooth profiles via dedicated Bluetooth control screen
 
 ## Layer access
 
-Hold the modifier key (bottom-left, key 12) to activate the layer switcher. While holding key 12:
+Hold the layer-switching key (bottom-right, key 15) to activate the layer switcher. While holding it:
 
 **Normal layers (tap):**
 - Tap keys 0-11 to switch to normal layers 0-11.
-- Tap keys 13-15 to switch to normal layers 12-14.
+- Tap keys 12-14 to switch to normal layers 12-14.
 
 **Special layers (hold for 1 second, ordered by increasing danger):**
 - Key 0: Type battery voltage (for example: "Battery: 3.98V").
@@ -58,7 +58,7 @@ Key positions:
 
 **OnShape sub layers (accessed from Layer 10)**
 
-- **Layer 18**: OnShape Constraints (hold Enter). Shortcuts: D, H, V, I, T, E, B, Shift + L, Shift + O, Shift + M, Shift + Q, Shift + J, Shift + K, Shift + U, Shift + G.
+- **Layer 18**: OnShape Constraints (hold key 10). Shortcuts: D, H, V, I, T, E, B, Shift + L, Shift + O, Shift + M, Shift + Q, Shift + J, Shift + K, Shift + U, Shift + G.
 - **Layer 19**: OnShape Features (hold Escape). Shortcuts: Shift + E (Extrude), Shift + W (Revolve), Shift + F (Fillet). Remaining keys are empty.
 - **Layer 20**: OnShape Numbers (hold key 11). Numpad layout (7-8-9, 4-5-6, 1-2-3, 0) with *, mm macro, +, decimal point, and backspace.
 ## Customize
@@ -82,5 +82,5 @@ Pin mappings for each version are in `pins_v1.overlay` and `pins_v2.overlay`.
 
 ## Flashing
 
-1. Put the board in bootloader mode (hold modifier + hold key 2 for 1 second).
+1. Put the board in bootloader mode (hold the layer-switching key + hold key 2 for 1 second).
 2. Copy `build/zephyr/zmk.uf2` to the USB mass storage device that appears.
