@@ -1,5 +1,11 @@
 # Agent instructions
 
+## Repository overview
+
+The keymap is in `config/stavropad.keymap` (21 layers, ~618 lines) and is the main file you'll edit. The ZMK shield config (Kconfig, overlays, pin mappings) lives in `config/boards/shields/stavropad/`. KLE JSON layout files are in `config/layouts/` (one per layer), and `misc/render_kle.py` renders them to PNGs in `misc/layouts/`, which `KEYMAPS.md` embeds. `build.sh` runs the firmware build via Docker and outputs `build/zephyr/zmk.uf2`. The PCB design files are in `pcb/`. The `zmk-modules/batt_type/` directory contains a custom ZMK module for battery voltage reporting.
+
+## Post-change checklist
+
 After every change to the keymap or configuration:
 
 1. Update `README.md` to reflect any changes to layers, combos, or features.
